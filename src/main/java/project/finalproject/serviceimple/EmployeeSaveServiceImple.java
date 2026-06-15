@@ -20,7 +20,9 @@ public class EmployeeSaveServiceImple implements EmployeeSaveService{
 	@Override
 	public Employee saveEmployeeData(Employee employee) {
 		// TODO Auto-generated method stub
-		return employeeRepository.save(employee);
+		Employee newEmployee = project.finalproject.factory.EmployeeFactory.createEmployee();
+		org.springframework.beans.BeanUtils.copyProperties(employee, newEmployee);
+		return employeeRepository.save(newEmployee);
 	}
 
 }

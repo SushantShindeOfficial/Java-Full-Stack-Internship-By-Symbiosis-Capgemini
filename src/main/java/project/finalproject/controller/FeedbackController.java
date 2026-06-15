@@ -36,30 +36,30 @@ public class FeedbackController {
 	@PostMapping("/saveFeedback")
 	public ResponseEntity<Feedback> saveFeedback(@RequestBody Feedback feedback) {
 		Feedback e1 = feedbackSaveServiceImple.saveFeedbackData(feedback);
-		return new ResponseEntity<Feedback>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateFeedback/{id}")
 	public ResponseEntity<Feedback> updateFeedback(@RequestBody Feedback feedback, @PathVariable int id) {
 		Feedback e1 = feedbackUpdateServiceImple.updateFeedbackData(feedback, id);
-		return new ResponseEntity<Feedback>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteFeedback/{id}")
 	public ResponseEntity<String> deleteFeedback(@PathVariable int id) {
 		feedbackDeleteServiceImple.deleteFeedbackData(id);
-		return new ResponseEntity<String>("Feedback deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Feedback deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleFeedback/{id}")
 	public ResponseEntity<Feedback> singleFeedbackData(@PathVariable int id) {
 		Feedback e1 = feedbackFetchServiceImple.fetchFeedbackData(id);
-		return new ResponseEntity<Feedback>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllFeedbackData")
 	public ResponseEntity<List<Feedback>> allFeedbackData() {
 		List<Feedback> l1 = feedbackFetchAllServiceImple.fetchAllFeedbackData();
-		return new ResponseEntity<List<Feedback>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

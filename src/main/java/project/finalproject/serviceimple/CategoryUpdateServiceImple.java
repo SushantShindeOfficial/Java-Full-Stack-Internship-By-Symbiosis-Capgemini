@@ -20,7 +20,9 @@ public class CategoryUpdateServiceImple implements CategoryUpdateService{
 	@Override
 	public Category updateCategoryData(Category category, int cid) {
 		// TODO Auto-generated method stub
-		Category o1=categoryRepository.findById(cid).get();
+		Category existingEntity = categoryRepository.findById(cid).get();
+		Category o1 = project.finalproject.factory.CategoryFactory.createCategory();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setName(category.getName());
 		o1.setSubCategories(category.getSubCategories());
 		o1.setProducts(category.getProducts());

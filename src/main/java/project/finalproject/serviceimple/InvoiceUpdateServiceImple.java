@@ -20,7 +20,9 @@ public class InvoiceUpdateServiceImple implements InvoiceUpdateService{
 	@Override
 	public Invoice updateInvoiceData(Invoice invoice, int iid) {
 		// TODO Auto-generated method stub
-		Invoice i1 = invoiceRepository.findById(iid).get();
+		Invoice existingEntity = invoiceRepository.findById(iid).get();
+		Invoice i1 = project.finalproject.factory.InvoiceFactory.createInvoice();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, i1);
 		i1.setProducts(invoice.getProducts());
 		i1.setPaymentmode(invoice.getPaymentmode());
 		i1.setShippingDetails(invoice.getShippingDetails());

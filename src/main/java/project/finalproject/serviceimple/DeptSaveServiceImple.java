@@ -20,7 +20,9 @@ public class DeptSaveServiceImple implements DeptSaveService{
 	@Override
 	public Dept saveDeptData(Dept dept) {
 		// TODO Auto-generated method stub
-		return deptRepository.save(dept);
+		Dept newDept = project.finalproject.factory.DeptFactory.createDept();
+		org.springframework.beans.BeanUtils.copyProperties(dept, newDept);
+		return deptRepository.save(newDept);
 	}
 
 }

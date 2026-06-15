@@ -19,7 +19,9 @@ public class UpiSaveServiceImple implements UpiSaveService{
 	@Override
 	public Upi saveUpiData(Upi upi) {
 		// TODO Auto-generated method stub
-		return upiRepository.save(upi);
+		Upi newUpi = project.finalproject.factory.UpiFactory.createUpi();
+		org.springframework.beans.BeanUtils.copyProperties(upi, newUpi);
+		return upiRepository.save(newUpi);
 	}
 
 }

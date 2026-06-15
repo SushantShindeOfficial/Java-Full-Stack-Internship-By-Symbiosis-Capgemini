@@ -19,7 +19,9 @@ public class TownSaveServiceImple implements TownSaveService{
 	@Override
 	public Town saveTownData(Town town) {
 		// TODO Auto-generated method stub
-		return townRepository.save(town);
+		Town newTown = project.finalproject.factory.TownFactory.createTown();
+		org.springframework.beans.BeanUtils.copyProperties(town, newTown);
+		return townRepository.save(newTown);
 	}
 
 }

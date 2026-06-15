@@ -36,30 +36,30 @@ public class AddressController {
 	@PostMapping("/saveAddress")
 	public ResponseEntity<Address> saveAddress(@RequestBody Address address) {
 		Address e1 = addressSaveServiceImple.saveAddressData(address);
-		return new ResponseEntity<Address>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateAddress/{flatno}")
 	public ResponseEntity<Address> updateAddress(@RequestBody Address address, @PathVariable int flatno) {
 		Address e1 = addressUpdateServiceImple.updateAddressData(address, flatno);
-		return new ResponseEntity<Address>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteAddress/{flatno}")
 	public ResponseEntity<String> deleteAddress(@PathVariable int flatno) {
 		addressDeleteServiceImple.deleteAddressData(flatno);
-		return new ResponseEntity<String>("Address deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Address deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleAddress/{flatno}")
 	public ResponseEntity<Address> singleAddressData(@PathVariable int flatno) {
 		Address e1 = addressFetchServiceImple.fetchAddressData(flatno);
-		return new ResponseEntity<Address>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllAddressData")
 	public ResponseEntity<List<Address>> allAddressData() {
 		List<Address> l1 = addressFetchAllServiceImple.fetchAllAddressData();
-		return new ResponseEntity<List<Address>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

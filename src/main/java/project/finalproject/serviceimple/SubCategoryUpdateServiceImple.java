@@ -20,7 +20,9 @@ public class SubCategoryUpdateServiceImple implements SubCategoryUpdateService{
 	@Override
 	public SubCategory updateSubCategoryData(SubCategory subCategory, int sid) {
 		// TODO Auto-generated method stub
-		SubCategory o1=subCategoryRepository.findById(sid).get();
+		SubCategory existingEntity = subCategoryRepository.findById(sid).get();
+		SubCategory o1 = project.finalproject.factory.SubCategoryFactory.createSubCategory();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setName(subCategory.getName());
 		o1.setProducts(subCategory.getProducts());
 		o1.setBrands(subCategory.getBrands());

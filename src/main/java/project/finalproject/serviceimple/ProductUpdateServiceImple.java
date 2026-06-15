@@ -20,7 +20,9 @@ public class ProductUpdateServiceImple implements ProductUpdateService{
 	@Override
 	public Product updateProductData(Product product, int pid) {
 		// TODO Auto-generated method stub
-		Product o1=productRepository.findById(pid).get();
+		Product existingEntity = productRepository.findById(pid).get();
+		Product o1 = project.finalproject.factory.ProductFactory.createProduct();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setName(product.getName());
 		o1.setBrands(product.getBrands());
 		o1.setPrice(product.getPrice());

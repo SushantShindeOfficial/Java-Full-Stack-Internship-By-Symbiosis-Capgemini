@@ -20,7 +20,9 @@ public class UpiUpdateServiceImple implements UpiUpdateService{
 	@Override
 	public Upi updateUpiData(Upi upi, int uid) {
 		// TODO Auto-generated method stub
-		Upi u1 = upiRepository.findById(uid).get();
+		Upi existingEntity = upiRepository.findById(uid).get();
+		Upi u1 = project.finalproject.factory.UpiFactory.createUpi();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, u1);
 		u1.setAmount(upi.getAmount());
 		u1.setUser(upi.getUser());
 		

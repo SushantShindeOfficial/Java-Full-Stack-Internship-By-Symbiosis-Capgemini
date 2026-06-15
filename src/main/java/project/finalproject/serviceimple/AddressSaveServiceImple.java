@@ -20,7 +20,9 @@ public class AddressSaveServiceImple implements AddressSaveService{
 	@Override
 	public Address saveAddressData(Address address) {
 		// TODO Auto-generated method stub
-		return addressRepository.save(address);
+		Address newAddress = project.finalproject.factory.AddressFactory.createAddress();
+		org.springframework.beans.BeanUtils.copyProperties(address, newAddress);
+		return addressRepository.save(newAddress);
 	}
 
 }

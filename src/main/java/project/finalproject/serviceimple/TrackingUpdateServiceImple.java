@@ -20,7 +20,9 @@ public class TrackingUpdateServiceImple implements TrackingUpdateService{
 	@Override
 	public Tracking updateTrackingData(Tracking tracking, int id) {
 		// TODO Auto-generated method stub
-		Tracking t1 = trackingRepository.findById(id).get();
+		Tracking existingEntity = trackingRepository.findById(id).get();
+		Tracking t1 = project.finalproject.factory.TrackingFactory.createTracking();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, t1);
 		
 		return trackingRepository.save(t1);
 	}

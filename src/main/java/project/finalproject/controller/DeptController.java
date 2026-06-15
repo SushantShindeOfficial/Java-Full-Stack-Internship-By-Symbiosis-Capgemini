@@ -36,30 +36,30 @@ public class DeptController {
 	@PostMapping("/saveDept")
 	public ResponseEntity<Dept> saveDept(@RequestBody Dept dept) {
 		Dept e1 = deptSaveServiceImple.saveDeptData(dept);
-		return new ResponseEntity<Dept>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateDept/{did}")
 	public ResponseEntity<Dept> updateDept(@RequestBody Dept dept, @PathVariable int did) {
 		Dept e1 = deptUpdateServiceImple.updateDeptData(dept, did);
-		return new ResponseEntity<Dept>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteDept/{did}")
 	public ResponseEntity<String> deleteDept(@PathVariable int did) {
 		deptDeleteServiceImple.deleteDeptData(did);
-		return new ResponseEntity<String>("Dept deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Dept deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleDept/{did}")
 	public ResponseEntity<Dept> singleDeptData(@PathVariable int did) {
 		Dept e1 = deptFetchServiceImple.fetchDeptData(did);
-		return new ResponseEntity<Dept>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllDeptData")
 	public ResponseEntity<List<Dept>> allDeptData() {
 		List<Dept> l1 = deptFetchAllServiceImple.fetchAllDeptData();
-		return new ResponseEntity<List<Dept>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

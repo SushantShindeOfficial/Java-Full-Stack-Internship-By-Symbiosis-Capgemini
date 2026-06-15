@@ -20,7 +20,9 @@ public class CompanySaveServiceImple implements CompanySaveService{
 	@Override
 	public Company saveCompanyData(Company company) {
 		// TODO Auto-generated method stub
-		return companyRepository.save(company);
+		Company newCompany = project.finalproject.factory.CompanyFactory.createCompany();
+		org.springframework.beans.BeanUtils.copyProperties(company, newCompany);
+		return companyRepository.save(newCompany);
 	}
 
 }

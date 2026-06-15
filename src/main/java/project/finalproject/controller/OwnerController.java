@@ -36,30 +36,30 @@ public class OwnerController {
 	@PostMapping("/saveOwner")
 	public ResponseEntity<Owner> saveOwner(@RequestBody Owner owner) {
 		Owner e1 = ownerSaveServiceImple.saveOwnerData(owner);
-		return new ResponseEntity<Owner>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateOwner/{id}")
 	public ResponseEntity<Owner> updateOwner(@RequestBody Owner owner, @PathVariable int id) {
 		Owner e1 = ownerUpdateServiceImple.updateOwnerData(owner, id);
-		return new ResponseEntity<Owner>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteOwner/{id}")
 	public ResponseEntity<String> deleteOwner(@PathVariable int id) {
 		ownerDeleteServiceImple.deleteOwnerData(id);
-		return new ResponseEntity<String>("Owner deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Owner deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleOwner/{id}")
 	public ResponseEntity<Owner> singleOwnerData(@PathVariable int id) {
 		Owner e1 = ownerFetchServiceImple.fetchOwnerData(id);
-		return new ResponseEntity<Owner>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllOwnerData")
 	public ResponseEntity<List<Owner>> allOwnerData() {
 		List<Owner> l1 = ownerFetchAllServiceImple.fetchAllOwnerData();
-		return new ResponseEntity<List<Owner>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

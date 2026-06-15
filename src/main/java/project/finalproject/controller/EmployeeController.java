@@ -36,30 +36,30 @@ public class EmployeeController {
 	@PostMapping("/saveEmployee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
 		Employee e1 = employeeSaveServiceImple.saveEmployeeData(employee);
-		return new ResponseEntity<Employee>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateEmployee/{id}")
 	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee, @PathVariable int id) {
 		Employee e1 = employeeUpdateServiceImple.updateEmployeeData(employee, id);
-		return new ResponseEntity<Employee>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteEmployee/{id}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable int id) {
 		employeeDeleteServiceImple.deleteEmployeeData(id);
-		return new ResponseEntity<String>("Employee deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Employee deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleEmployee/{id}")
 	public ResponseEntity<Employee> singleEmployeeData(@PathVariable int id) {
 		Employee e1 = employeeFetchServiceImple.fetchEmployeeData(id);
-		return new ResponseEntity<Employee>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllEmployeeData")
 	public ResponseEntity<List<Employee>> allEmployeeData() {
 		List<Employee> l1 = employeeFetchAllServiceImple.fetchAllEmployeeData();
-		return new ResponseEntity<List<Employee>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

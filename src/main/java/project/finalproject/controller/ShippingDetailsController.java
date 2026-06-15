@@ -36,30 +36,30 @@ public class ShippingDetailsController {
 	@PostMapping("/saveShippingDetails")
 	public ResponseEntity<ShippingDetails> saveShippingDetails(@RequestBody ShippingDetails shippingDetails) {
 		ShippingDetails e1 = shippingDetailsSaveServiceImple.saveShippingDetailsData(shippingDetails);
-		return new ResponseEntity<ShippingDetails>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateShippingDetails/{sid}")
 	public ResponseEntity<ShippingDetails> updateShippingDetails(@RequestBody ShippingDetails shippingDetails, @PathVariable int sid) {
 		ShippingDetails e1 = shippingDetailsUpdateServiceImple.updateShippingDetailsData(shippingDetails, sid);
-		return new ResponseEntity<ShippingDetails>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteShippingDetails/{sid}")
 	public ResponseEntity<String> deleteShippingDetails(@PathVariable int sid) {
 		shippingDetailsDeleteServiceImple.deleteShippingDetailsData(sid);
-		return new ResponseEntity<String>("ShippingDetails deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("ShippingDetails deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleShippingDetails/{sid}")
 	public ResponseEntity<ShippingDetails> singleShippingDetailsData(@PathVariable int sid) {
 		ShippingDetails e1 = shippingDetailsFetchServiceImple.fetchShippingDetailsData(sid);
-		return new ResponseEntity<ShippingDetails>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllShippingDetailsData")
 	public ResponseEntity<List<ShippingDetails>> allShippingDetailsData() {
 		List<ShippingDetails> l1 = shippingDetailsFetchAllServiceImple.fetchAllShippingDetailsData();
-		return new ResponseEntity<List<ShippingDetails>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

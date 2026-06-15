@@ -36,30 +36,30 @@ public class OrdersController {
 	@PostMapping("/saveOrders")
 	public ResponseEntity<Orders> saveOrders(@RequestBody Orders orders) {
 		Orders e1 = ordersSaveServiceImple.saveOrdersData(orders);
-		return new ResponseEntity<Orders>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateOrders/{oId}")
 	public ResponseEntity<Orders> updateOrders(@RequestBody Orders orders, @PathVariable int oId) {
 		Orders e1 = ordersUpdateServiceImple.updateOrdersData(orders, oId);
-		return new ResponseEntity<Orders>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteOrders/{oId}")
 	public ResponseEntity<String> deleteOrders(@PathVariable int oId) {
 		ordersDeleteServiceImple.deleteOrdersData(oId);
-		return new ResponseEntity<String>("Orders deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Orders deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleOrders/{oId}")
 	public ResponseEntity<Orders> singleOrdersData(@PathVariable int oId) {
 		Orders e1 = ordersFetchServiceImple.fetchOrdersData(oId);
-		return new ResponseEntity<Orders>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllOrdersData")
 	public ResponseEntity<List<Orders>> allOrdersData() {
 		List<Orders> l1 = ordersFetchAllServiceImple.fetchAllOrdersData();
-		return new ResponseEntity<List<Orders>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

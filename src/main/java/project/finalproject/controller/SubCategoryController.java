@@ -36,30 +36,30 @@ public class SubCategoryController {
 	@PostMapping("/saveSubCategory")
 	public ResponseEntity<SubCategory> saveSubCategory(@RequestBody SubCategory subCategory) {
 		SubCategory e1 = subCategorySaveServiceImple.saveSubCategoryData(subCategory);
-		return new ResponseEntity<SubCategory>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateSubCategory/{sid}")
 	public ResponseEntity<SubCategory> updateSubCategory(@RequestBody SubCategory subCategory, @PathVariable int sid) {
 		SubCategory e1 = subCategoryUpdateServiceImple.updateSubCategoryData(subCategory, sid);
-		return new ResponseEntity<SubCategory>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteSubCategory/{sid}")
 	public ResponseEntity<String> deleteSubCategory(@PathVariable int sid) {
 		subCategoryDeleteServiceImple.deleteSubCategoryData(sid);
-		return new ResponseEntity<String>("SubCategory deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("SubCategory deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleSubCategory/{sid}")
 	public ResponseEntity<SubCategory> singleSubCategoryData(@PathVariable int sid) {
 		SubCategory e1 = subCategoryFetchServiceImple.fetchSubCategoryData(sid);
-		return new ResponseEntity<SubCategory>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllSubCategoryData")
 	public ResponseEntity<List<SubCategory>> allSubCategoryData() {
 		List<SubCategory> l1 = subCategoryFetchAllServiceImple.fetchAllSubCategoryData();
-		return new ResponseEntity<List<SubCategory>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

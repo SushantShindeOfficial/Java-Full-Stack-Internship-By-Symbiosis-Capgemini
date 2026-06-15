@@ -20,7 +20,9 @@ public class CodUpdateServiceImple implements CodUpdateService{
 	@Override
 	public Cod updateCodData(Cod cod, int cid) {
 		// TODO Auto-generated method stub
-		Cod c1 = codRepository.findById(cid).get();
+		Cod existingEntity = codRepository.findById(cid).get();
+		Cod c1 = project.finalproject.factory.CodFactory.createCod();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, c1);
 		c1.setAmount(cod.getAmount());
 		c1.setUser(cod.getUser());
 		

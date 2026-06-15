@@ -19,7 +19,9 @@ public class DistrictSaveServiceImple implements DistrictSaveService{
 	@Override
 	public District saveDistrictData(District district) {
 		// TODO Auto-generated method stub
-		return districtRepository.save(district);
+		District newDistrict = project.finalproject.factory.DistrictFactory.createDistrict();
+		org.springframework.beans.BeanUtils.copyProperties(district, newDistrict);
+		return districtRepository.save(newDistrict);
 	}
 
 }

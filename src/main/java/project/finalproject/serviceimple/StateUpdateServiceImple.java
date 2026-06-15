@@ -20,7 +20,9 @@ public class StateUpdateServiceImple implements StateUpdateService{
 	@Override
 	public State updateStateData(State state, int id) {
 		// TODO Auto-generated method stub
-		State s1 = stateRepository.findById(id).get();
+		State existingEntity = stateRepository.findById(id).get();
+		State s1 = project.finalproject.factory.StateFactory.createState();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, s1);
 		s1.setName(state.getName());
 		s1.setDistricts(state.getDistricts());
 		

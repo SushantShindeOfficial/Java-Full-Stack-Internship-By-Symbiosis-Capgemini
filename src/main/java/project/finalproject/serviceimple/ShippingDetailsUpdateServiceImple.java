@@ -20,7 +20,9 @@ public class ShippingDetailsUpdateServiceImple implements ShippingDetailsUpdateS
 	@Override
 	public ShippingDetails updateShippingDetailsData(ShippingDetails shippingDetails, int sid) {
 		// TODO Auto-generated method stub
-		ShippingDetails s1 = shippingDetailsRepository.findById(sid).get();
+		ShippingDetails existingEntity = shippingDetailsRepository.findById(sid).get();
+		ShippingDetails s1 = project.finalproject.factory.ShippingDetailsFactory.createShippingDetails();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, s1);
 		s1.setUsers(shippingDetails.getUsers());
 		
 		return shippingDetailsRepository.save(s1);

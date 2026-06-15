@@ -20,7 +20,9 @@ public class OwnerUpdateServiceImple implements OwnerUpdateService{
 	@Override
 	public Owner updateOwnerData(Owner owner, int id) {
 		// TODO Auto-generated method stub
-		Owner o1=ownerRepository.findById(id).get();
+		Owner existingEntity = ownerRepository.findById(id).get();
+		Owner o1 = project.finalproject.factory.OwnerFactory.createOwner();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setName(owner.getName());
 		o1.setAdhar(owner.getAdhar());
 		o1.setPanno(owner.getPanno());

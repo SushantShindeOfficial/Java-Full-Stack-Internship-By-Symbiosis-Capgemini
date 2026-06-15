@@ -36,30 +36,30 @@ public class DistrictController {
 	@PostMapping("/saveDistrict")
 	public ResponseEntity<District> saveDistrict(@RequestBody District district) {
 		District e1 = districtSaveServiceImple.saveDistrictData(district);
-		return new ResponseEntity<District>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateDistrict/{id}")
 	public ResponseEntity<District> updateDistrict(@RequestBody District district, @PathVariable int id) {
 		District e1 = districtUpdateServiceImple.updateDistrictData(district, id);
-		return new ResponseEntity<District>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteDistrict/{id}")
 	public ResponseEntity<String> deleteDistrict(@PathVariable int id) {
 		districtDeleteServiceImple.deleteDistrictData(id);
-		return new ResponseEntity<String>("District deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("District deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleDistrict/{id}")
 	public ResponseEntity<District> singleDistrictData(@PathVariable int id) {
 		District e1 = districtFetchServiceImple.fetchDistrictData(id);
-		return new ResponseEntity<District>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllDistrictData")
 	public ResponseEntity<List<District>> allDistrictData() {
 		List<District> l1 = districtFetchAllServiceImple.fetchAllDistrictData();
-		return new ResponseEntity<List<District>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

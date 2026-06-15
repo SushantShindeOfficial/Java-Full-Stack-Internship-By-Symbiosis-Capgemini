@@ -19,7 +19,9 @@ public class StateSaveServiceImple implements StateSaveService{
 	@Override
 	public State saveStateData(State state) {
 		// TODO Auto-generated method stub
-		return stateRepository.save(state);
+		State newState = project.finalproject.factory.StateFactory.createState();
+		org.springframework.beans.BeanUtils.copyProperties(state, newState);
+		return stateRepository.save(newState);
 	}
 
 }

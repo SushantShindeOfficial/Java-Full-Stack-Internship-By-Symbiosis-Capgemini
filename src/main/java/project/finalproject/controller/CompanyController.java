@@ -36,30 +36,30 @@ public class CompanyController {
 	@PostMapping("/saveCompany")
 	public ResponseEntity<Company> saveCompany(@RequestBody Company company) {
 		Company e1 = companySaveServiceImple.saveCompanyData(company);
-		return new ResponseEntity<Company>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateCompany/{regNo}")
 	public ResponseEntity<Company> updateCompany(@RequestBody Company company, @PathVariable int regNo) {
 		Company e1 = companyUpdateServiceImple.updateCompanyData(company, regNo);
-		return new ResponseEntity<Company>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteCompany/{regNo}")
 	public ResponseEntity<String> deleteCompany(@PathVariable int regNo) {
 		companyDeleteServiceImple.deleteCompanyData(regNo);
-		return new ResponseEntity<String>("Company deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Company deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleCompany/{regNo}")
 	public ResponseEntity<Company> singleCompanyData(@PathVariable int regNo) {
 		Company e1 = companyFetchServiceImple.fetchCompanyData(regNo);
-		return new ResponseEntity<Company>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllCompanyData")
 	public ResponseEntity<List<Company>> allCompanyData() {
 		List<Company> l1 = companyFetchAllServiceImple.fetchAllCompanyData();
-		return new ResponseEntity<List<Company>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

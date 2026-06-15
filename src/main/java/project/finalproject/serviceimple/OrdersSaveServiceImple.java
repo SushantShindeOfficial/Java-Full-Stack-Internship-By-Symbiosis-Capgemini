@@ -20,7 +20,9 @@ public class OrdersSaveServiceImple implements OrdersSaveService{
 	@Override
 	public Orders saveOrdersData(Orders orders) {
 		// TODO Auto-generated method stub
-		return orderRepository.save(orders);
+		Orders newOrders = project.finalproject.factory.OrdersFactory.createOrders();
+		org.springframework.beans.BeanUtils.copyProperties(orders, newOrders);
+		return orderRepository.save(newOrders);
 	}
 
 }

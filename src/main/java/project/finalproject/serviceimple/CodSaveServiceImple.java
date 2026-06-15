@@ -19,7 +19,9 @@ public class CodSaveServiceImple implements CodSaveService{
 	@Override
 	public Cod saveCodData(Cod cod) {
 		// TODO Auto-generated method stub
-		return codRepository.save(cod);
+		Cod newCod = project.finalproject.factory.CodFactory.createCod();
+		org.springframework.beans.BeanUtils.copyProperties(cod, newCod);
+		return codRepository.save(newCod);
 	}
 
 }

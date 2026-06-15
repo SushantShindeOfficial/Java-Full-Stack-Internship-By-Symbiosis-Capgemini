@@ -36,30 +36,30 @@ public class CountryController {
 	@PostMapping("/saveCountry")
 	public ResponseEntity<Country> saveCountry(@RequestBody Country country) {
 		Country e1 = countrySaveServiceImple.saveCountryData(country);
-		return new ResponseEntity<Country>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateCountry/{id}")
 	public ResponseEntity<Country> updateCountry(@RequestBody Country country, @PathVariable int id) {
 		Country e1 = countryUpdateServiceImple.updateCountryData(country, id);
-		return new ResponseEntity<Country>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteCountry/{id}")
 	public ResponseEntity<String> deleteCountry(@PathVariable int id) {
 		countryDeleteServiceImple.deleteCountryData(id);
-		return new ResponseEntity<String>("Country deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Country deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleCountry/{id}")
 	public ResponseEntity<Country> singleCountryData(@PathVariable int id) {
 		Country e1 = countryFetchServiceImple.fetchCountryData(id);
-		return new ResponseEntity<Country>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllCountryData")
 	public ResponseEntity<List<Country>> allCountryData() {
 		List<Country> l1 = countryFetchAllServiceImple.fetchAllCountryData();
-		return new ResponseEntity<List<Country>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

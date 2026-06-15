@@ -45,7 +45,7 @@ public class UserController {
 		public ResponseEntity<User> saveUser(@RequestBody User user)
 		{	
 			User u1 = userSaveServiceImple.saveUserData(user);
-			return new ResponseEntity<User>(u1,HttpStatus.CREATED);
+			return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(u1,HttpStatus.CREATED);
 			
 		}
 		
@@ -53,7 +53,7 @@ public class UserController {
 		public ResponseEntity<User> updateUser(@RequestBody User user,@PathVariable int id)
 		{	
 			User  u1 = userupdateServiceImple.updateData(user, id);
-			return new ResponseEntity<User>(u1,HttpStatus.CREATED);
+			return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(u1,HttpStatus.CREATED);
 			
 		}
 		
@@ -61,7 +61,7 @@ public class UserController {
 		public ResponseEntity<String> deleteUser(@PathVariable int id)
 		{	
 			userDeleteServiceImple.deleteData(id);
-			return new ResponseEntity<String>("User deleted Successfully",HttpStatus.OK);
+			return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("User deleted Successfully",HttpStatus.OK);
 			
 		}
 		
@@ -69,7 +69,7 @@ public class UserController {
 		public ResponseEntity<User> singleUserData(@PathVariable int id)
 		{	
 			User u1 = userfetchServiceImple.fetchData(id);
-			return new ResponseEntity<User>(u1,HttpStatus.OK);
+			return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(u1,HttpStatus.OK);
 			
 		}
 		
@@ -77,6 +77,6 @@ public class UserController {
 		public ResponseEntity<List<User>> allUserData()
 		{
 			List<User> l1=userfetchallServiceImple.fetchData();
-			return new ResponseEntity<List<User>>(l1,HttpStatus.OK); 
+			return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1,HttpStatus.OK); 
 		}
 }

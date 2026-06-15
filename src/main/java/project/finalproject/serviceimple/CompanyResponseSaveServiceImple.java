@@ -19,7 +19,9 @@ public class CompanyResponseSaveServiceImple implements CompanyResponseSaveServi
 	@Override
 	public CompanyResponse saveCompanyResponseData(CompanyResponse companyResponse) {
 		// TODO Auto-generated method stub
-		return companyResponseRepository.save(companyResponse);
+		CompanyResponse newCompanyResponse = project.finalproject.factory.CompanyResponseFactory.createCompanyResponse();
+		org.springframework.beans.BeanUtils.copyProperties(companyResponse, newCompanyResponse);
+		return companyResponseRepository.save(newCompanyResponse);
 	}
 
 }

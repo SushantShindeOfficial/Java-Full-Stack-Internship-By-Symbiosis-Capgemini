@@ -20,7 +20,9 @@ public class PaymentModeUpdateServiceImple implements PaymentModeUpdateService{
 	@Override
 	public PaymentMode updatePaymentModeData(PaymentMode paymentMode, int pmid) {
 		// TODO Auto-generated method stub
-		PaymentMode p1 = paymentModeRepository.findById(pmid).get();
+		PaymentMode existingEntity = paymentModeRepository.findById(pmid).get();
+		PaymentMode p1 = project.finalproject.factory.PaymentModeFactory.createPaymentMode();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, p1);
 		p1.setCod(paymentMode.getCod());
 		p1.setUpi(paymentMode.getUpi());
 		p1.setCard(paymentMode.getCard());

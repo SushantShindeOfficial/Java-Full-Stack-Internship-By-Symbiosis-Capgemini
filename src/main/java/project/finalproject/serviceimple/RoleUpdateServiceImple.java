@@ -20,7 +20,9 @@ public class RoleUpdateServiceImple implements RoleUpdateService{
 	@Override
 	public Role updateRoleData(Role role, int id) {
 		// TODO Auto-generated method stub
-		Role r = roleRepository.findById(id).get();
+		Role existingEntity = roleRepository.findById(id).get();
+		Role r = project.finalproject.factory.RoleFactory.createRole();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, r);
 		r.setName(role.getName());
 		return roleRepository.save(r);
 	}

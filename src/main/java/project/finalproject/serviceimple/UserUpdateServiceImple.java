@@ -19,7 +19,9 @@ public class UserUpdateServiceImple implements UserUpdateService{
 	@Override
 	public User updateData(User user, int id) {
 		// TODO Auto-generated method stub
-		User u1 = userRepository.findById(id).get();
+		User existingEntity = userRepository.findById(id).get();
+		User u1 = project.finalproject.factory.UserFactory.createUser();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, u1);
 		u1.setName(user.getName());
 		u1.setAdhar(user.getAdhar());
 		u1.setPanno(user.getPanno());

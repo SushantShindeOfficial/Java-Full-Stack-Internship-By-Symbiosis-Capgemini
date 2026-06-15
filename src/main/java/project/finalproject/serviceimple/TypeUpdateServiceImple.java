@@ -20,7 +20,9 @@ public class TypeUpdateServiceImple implements TypeUpdateService{
 	@Override
 	public Type updateTypeData(Type type, int tid) {
 		// TODO Auto-generated method stub
-		Type t1 = typeRepository.findById(tid).get();
+		Type existingEntity = typeRepository.findById(tid).get();
+		Type t1 = project.finalproject.factory.TypeFactory.createType();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, t1);
 		t1.setName(type.getName());
 		
 		return typeRepository.save(t1);

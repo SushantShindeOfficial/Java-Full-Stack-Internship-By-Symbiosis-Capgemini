@@ -19,7 +19,9 @@ public class TrackingSaveServiceImple implements TrackingSaveService{
 	@Override
 	public Tracking saveTrackingData(Tracking tracking) {
 		// TODO Auto-generated method stub
-		return trackingRepository.save(tracking);
+		Tracking newTracking = project.finalproject.factory.TrackingFactory.createTracking();
+		org.springframework.beans.BeanUtils.copyProperties(tracking, newTracking);
+		return trackingRepository.save(newTracking);
 	}
 
 }

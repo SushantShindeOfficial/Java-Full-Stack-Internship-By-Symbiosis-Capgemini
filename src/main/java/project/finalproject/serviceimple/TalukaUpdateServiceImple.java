@@ -20,7 +20,9 @@ public class TalukaUpdateServiceImple implements TalukaUpdateService{
 	@Override
 	public Taluka updateTalukaData(Taluka taluka, int id) {
 		// TODO Auto-generated method stub
-		Taluka t1 = talukaRepository.findById(id).get();
+		Taluka existingEntity = talukaRepository.findById(id).get();
+		Taluka t1 = project.finalproject.factory.TalukaFactory.createTaluka();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, t1);
 		t1.setName(taluka.getName());
 		t1.setTowns(taluka.getTowns());
 		

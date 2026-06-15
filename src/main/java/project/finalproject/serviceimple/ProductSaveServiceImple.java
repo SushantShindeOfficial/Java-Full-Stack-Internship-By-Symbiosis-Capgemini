@@ -20,7 +20,9 @@ public class ProductSaveServiceImple implements ProductSaveService{
 	@Override
 	public Product saveProductData(Product product) {
 		// TODO Auto-generated method stub
-		return productRepository.save(product);
+		Product newProduct = project.finalproject.factory.ProductFactory.createProduct();
+		org.springframework.beans.BeanUtils.copyProperties(product, newProduct);
+		return productRepository.save(newProduct);
 	}
 
 }

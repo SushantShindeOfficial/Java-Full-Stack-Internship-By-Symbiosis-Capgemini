@@ -36,30 +36,30 @@ public class AdminController {
 	@PostMapping("/saveAdmin")
 	public ResponseEntity<Admin> saveAdmin(@RequestBody Admin admin) {
 		Admin e1 = adminSaveServiceImple.saveAdminData(admin);
-		return new ResponseEntity<Admin>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateAdmin/{id}")
 	public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin, @PathVariable int id) {
 		Admin e1 = adminUpdateServiceImple.updateAdminData(admin, id);
-		return new ResponseEntity<Admin>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteAdmin/{id}")
 	public ResponseEntity<String> deleteAdmin(@PathVariable int id) {
 		adminDeleteServiceImple.deleteAdminData(id);
-		return new ResponseEntity<String>("Admin deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Admin deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleAdmin/{id}")
 	public ResponseEntity<Admin> singleAdminData(@PathVariable int id) {
 		Admin e1 = adminFetchServiceImple.fetchAdminData(id);
-		return new ResponseEntity<Admin>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllAdminData")
 	public ResponseEntity<List<Admin>> allAdminData() {
 		List<Admin> l1 = adminFetchAllServiceImple.fetchAllAdminData();
-		return new ResponseEntity<List<Admin>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

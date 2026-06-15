@@ -20,7 +20,9 @@ public class CompanyUpdateServiceImple implements CompanyUpdateService{
 	@Override
 	public Company updateCompanyData(Company company, int regNo) {
 		// TODO Auto-generated method stub
-		Company c = companyRepository.findById(regNo).get();
+		Company existingEntity = companyRepository.findById(regNo).get();
+		Company c = project.finalproject.factory.CompanyFactory.createCompany();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, c);
 		c.setName(company.getName());
 		c.setAddress(company.getAddress());
 		c.setOwner(company.getOwner());

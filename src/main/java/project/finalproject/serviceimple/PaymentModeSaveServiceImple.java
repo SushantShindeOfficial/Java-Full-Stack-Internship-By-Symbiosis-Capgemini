@@ -19,7 +19,9 @@ public class PaymentModeSaveServiceImple implements PaymentModeSaveService{
 	@Override
 	public PaymentMode savePaymentModeData(PaymentMode paymentMode) {
 		// TODO Auto-generated method stub
-		return paymentModeRepository.save(paymentMode);
+		PaymentMode newPaymentMode = project.finalproject.factory.PaymentModeFactory.createPaymentMode();
+		org.springframework.beans.BeanUtils.copyProperties(paymentMode, newPaymentMode);
+		return paymentModeRepository.save(newPaymentMode);
 	}
 
 }

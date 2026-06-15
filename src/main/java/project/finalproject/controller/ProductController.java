@@ -36,30 +36,30 @@ public class ProductController {
 	@PostMapping("/saveProduct")
 	public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
 		Product e1 = productSaveServiceImple.saveProductData(product);
-		return new ResponseEntity<Product>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateProduct/{pid}")
 	public ResponseEntity<Product> updateProduct(@RequestBody Product product, @PathVariable int pid) {
 		Product e1 = productUpdateServiceImple.updateProductData(product, pid);
-		return new ResponseEntity<Product>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteProduct/{pid}")
 	public ResponseEntity<String> deleteProduct(@PathVariable int pid) {
 		productDeleteServiceImple.deleteProductData(pid);
-		return new ResponseEntity<String>("Product deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Product deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleProduct/{pid}")
 	public ResponseEntity<Product> singleProductData(@PathVariable int pid) {
 		Product e1 = productFetchServiceImple.fetchProductData(pid);
-		return new ResponseEntity<Product>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllProductData")
 	public ResponseEntity<List<Product>> allProductData() {
 		List<Product> l1 = productFetchAllServiceImple.fetchAllProductData();
-		return new ResponseEntity<List<Product>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

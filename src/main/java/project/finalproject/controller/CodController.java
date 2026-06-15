@@ -36,30 +36,30 @@ public class CodController {
 	@PostMapping("/saveCod")
 	public ResponseEntity<Cod> saveCod(@RequestBody Cod cod) {
 		Cod e1 = codSaveServiceImple.saveCodData(cod);
-		return new ResponseEntity<Cod>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateCod/{cid}")
 	public ResponseEntity<Cod> updateCod(@RequestBody Cod cod, @PathVariable int cid) {
 		Cod e1 = codUpdateServiceImple.updateCodData(cod, cid);
-		return new ResponseEntity<Cod>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteCod/{cid}")
 	public ResponseEntity<String> deleteCod(@PathVariable int cid) {
 		codDeleteServiceImple.deleteCodData(cid);
-		return new ResponseEntity<String>("Cod deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Cod deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleCod/{cid}")
 	public ResponseEntity<Cod> singleCodData(@PathVariable int cid) {
 		Cod e1 = codFetchServiceImple.fetchCodData(cid);
-		return new ResponseEntity<Cod>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllCodData")
 	public ResponseEntity<List<Cod>> allCodData() {
 		List<Cod> l1 = codFetchAllServiceImple.fetchAllCodData();
-		return new ResponseEntity<List<Cod>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

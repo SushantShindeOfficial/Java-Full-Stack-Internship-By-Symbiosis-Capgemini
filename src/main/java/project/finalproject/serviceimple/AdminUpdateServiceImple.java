@@ -20,7 +20,9 @@ public class AdminUpdateServiceImple implements AdminUpdateService{
 	@Override
 	public Admin updateAdminData(Admin admin, int id) {
 		// TODO Auto-generated method stub
-		Admin a = adminRepository.findById(id).get();
+		Admin existingEntity = adminRepository.findById(id).get();
+		Admin a = project.finalproject.factory.AdminFactory.createAdmin();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, a);
 		a.setName(admin.getName());
 		a.setAdhar(admin.getAdhar());
 		a.setPanno(admin.getPanno());

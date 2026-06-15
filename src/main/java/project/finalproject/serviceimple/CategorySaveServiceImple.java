@@ -20,7 +20,9 @@ public class CategorySaveServiceImple implements CategorySaveService{
 	@Override
 	public Category saveCategoryData(Category category) {
 		// TODO Auto-generated method stub
-		return categoryRepository.save(category);
+		Category newCategory = project.finalproject.factory.CategoryFactory.createCategory();
+		org.springframework.beans.BeanUtils.copyProperties(category, newCategory);
+		return categoryRepository.save(newCategory);
 	}
 
 }

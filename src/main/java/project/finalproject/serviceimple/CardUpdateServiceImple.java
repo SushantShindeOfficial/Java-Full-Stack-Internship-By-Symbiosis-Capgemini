@@ -20,7 +20,9 @@ public class CardUpdateServiceImple implements CardUpdateService{
 	@Override
 	public Card updateCardData(Card card, int cid) {
 		// TODO Auto-generated method stub
-		Card c1 = cardRepository.findById(cid).get();
+		Card existingEntity = cardRepository.findById(cid).get();
+		Card c1 = project.finalproject.factory.CardFactory.createCard();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, c1);
 		c1.setAmount(card.getAmount());
 		c1.setUser(card.getUser());
 		

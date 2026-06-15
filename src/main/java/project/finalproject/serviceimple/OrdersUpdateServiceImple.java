@@ -20,7 +20,9 @@ public class OrdersUpdateServiceImple implements OrdersUpdateService{
 	@Override
 	public Orders updateOrdersData(Orders orders, int oId) {
 		// TODO Auto-generated method stub
-		Orders o1=orderRepository.findById(oId).get();
+		Orders existingEntity = orderRepository.findById(oId).get();
+		Orders o1 = project.finalproject.factory.OrdersFactory.createOrders();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setName(orders.getName());
 		o1.setProducts(orders.getProducts());
 		o1.setPaymentmode(orders.getPaymentmode());

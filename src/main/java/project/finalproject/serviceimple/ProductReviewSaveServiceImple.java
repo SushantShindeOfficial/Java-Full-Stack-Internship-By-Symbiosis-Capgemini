@@ -20,7 +20,9 @@ public class ProductReviewSaveServiceImple implements ProductReviewSaveService{
 	@Override
 	public ProductReview saveProductReviewData(ProductReview productReview) {
 		// TODO Auto-generated method stub
-		return productReviewRepository.save(productReview);
+		ProductReview newProductReview = project.finalproject.factory.ProductReviewFactory.createProductReview();
+		org.springframework.beans.BeanUtils.copyProperties(productReview, newProductReview);
+		return productReviewRepository.save(newProductReview);
 	}
 
 }

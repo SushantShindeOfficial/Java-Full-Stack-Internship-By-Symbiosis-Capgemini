@@ -36,30 +36,30 @@ public class ProductReviewController {
 	@PostMapping("/saveProductReview")
 	public ResponseEntity<ProductReview> saveProductReview(@RequestBody ProductReview productReview) {
 		ProductReview e1 = productReviewSaveServiceImple.saveProductReviewData(productReview);
-		return new ResponseEntity<ProductReview>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateProductReview/{prid}")
 	public ResponseEntity<ProductReview> updateProductReview(@RequestBody ProductReview productReview, @PathVariable int prid) {
 		ProductReview e1 = productReviewUpdateServiceImple.updateProductReviewData(productReview, prid);
-		return new ResponseEntity<ProductReview>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteProductReview/{prid}")
 	public ResponseEntity<String> deleteProductReview(@PathVariable int prid) {
 		productReviewDeleteServiceImple.deleteProductReviewData(prid);
-		return new ResponseEntity<String>("ProductReview deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("ProductReview deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleProductReview/{prid}")
 	public ResponseEntity<ProductReview> singleProductReviewData(@PathVariable int prid) {
 		ProductReview e1 = productReviewFetchServiceImple.fetchProductReviewData(prid);
-		return new ResponseEntity<ProductReview>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllProductReviewData")
 	public ResponseEntity<List<ProductReview>> allProductReviewData() {
 		List<ProductReview> l1 = productReviewFetchAllServiceImple.fetchAllProductReviewData();
-		return new ResponseEntity<List<ProductReview>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

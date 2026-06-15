@@ -36,30 +36,30 @@ public class TypeController {
 	@PostMapping("/saveType")
 	public ResponseEntity<Type> saveType(@RequestBody Type type) {
 		Type e1 = typeSaveServiceImple.saveTypeData(type);
-		return new ResponseEntity<Type>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateType/{tid}")
 	public ResponseEntity<Type> updateType(@RequestBody Type type, @PathVariable int tid) {
 		Type e1 = typeUpdateServiceImple.updateTypeData(type, tid);
-		return new ResponseEntity<Type>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteType/{tid}")
 	public ResponseEntity<String> deleteType(@PathVariable int tid) {
 		typeDeleteServiceImple.deleteTypeData(tid);
-		return new ResponseEntity<String>("Type deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Type deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleType/{tid}")
 	public ResponseEntity<Type> singleTypeData(@PathVariable int tid) {
 		Type e1 = typeFetchServiceImple.fetchTypeData(tid);
-		return new ResponseEntity<Type>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllTypeData")
 	public ResponseEntity<List<Type>> allTypeData() {
 		List<Type> l1 = typeFetchAllServiceImple.fetchAllTypeData();
-		return new ResponseEntity<List<Type>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

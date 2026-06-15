@@ -19,7 +19,9 @@ public class CustomerQuerySaveServiceImple implements CustomerQuerySaveService{
 	@Override
 	public CustomerQuery saveCustomerQueryData(CustomerQuery customerQuery) {
 		// TODO Auto-generated method stub
-		return customerQueryRepository.save(customerQuery);
+		CustomerQuery newCustomerQuery = project.finalproject.factory.CustomerQueryFactory.createCustomerQuery();
+		org.springframework.beans.BeanUtils.copyProperties(customerQuery, newCustomerQuery);
+		return customerQueryRepository.save(newCustomerQuery);
 	}
 
 }

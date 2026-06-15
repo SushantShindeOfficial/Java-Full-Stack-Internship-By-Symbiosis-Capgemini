@@ -20,7 +20,9 @@ public class TownUpdateServiceImple implements TownUpdateService{
 	@Override
 	public Town updateTownData(Town town, int id) {
 		// TODO Auto-generated method stub
-		Town t1 = townRepository.findById(id).get();
+		Town existingEntity = townRepository.findById(id).get();
+		Town t1 = project.finalproject.factory.TownFactory.createTown();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, t1);
 		t1.setName(town.getName());
 		
 		return townRepository.save(t1);

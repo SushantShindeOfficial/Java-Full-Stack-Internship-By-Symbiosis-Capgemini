@@ -20,7 +20,9 @@ public class ManagerSaveServiceImple implements ManagerSaveService{
 	@Override
 	public Manager saveManagerData(Manager manager) {
 		// TODO Auto-generated method stub
-		return managerRepository.save(manager);
+		Manager newManager = project.finalproject.factory.ManagerFactory.createManager();
+		org.springframework.beans.BeanUtils.copyProperties(manager, newManager);
+		return managerRepository.save(newManager);
 	}
 
 }

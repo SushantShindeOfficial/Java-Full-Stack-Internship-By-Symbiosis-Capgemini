@@ -19,7 +19,9 @@ public class FeedbackSaveServiceImple implements FeedbackSaveService{
 	@Override
 	public Feedback saveFeedbackData(Feedback feedback) {
 		// TODO Auto-generated method stub
-		return feedbackRepository.save(feedback);
+		Feedback newFeedback = project.finalproject.factory.FeedbackFactory.createFeedback();
+		org.springframework.beans.BeanUtils.copyProperties(feedback, newFeedback);
+		return feedbackRepository.save(newFeedback);
 	}
 
 }

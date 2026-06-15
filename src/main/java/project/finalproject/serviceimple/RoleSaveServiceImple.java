@@ -20,7 +20,9 @@ public class RoleSaveServiceImple implements RoleSaveService{
 	@Override
 	public Role saveRoleData(Role role) {
 		// TODO Auto-generated method stub
-		return roleRepository.save(role);
+		Role newRole = project.finalproject.factory.RoleFactory.createRole();
+		org.springframework.beans.BeanUtils.copyProperties(role, newRole);
+		return roleRepository.save(newRole);
 	}
 
 }

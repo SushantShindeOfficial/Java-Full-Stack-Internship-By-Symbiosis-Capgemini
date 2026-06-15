@@ -20,7 +20,9 @@ public class BrandSaveServiceImple implements BrandSaveService{
 	@Override
 	public Brand saveBrandData(Brand brand) {
 		// TODO Auto-generated method stub
-		return brandRepository.save(brand);
+		Brand newBrand = project.finalproject.factory.BrandFactory.createBrand();
+		org.springframework.beans.BeanUtils.copyProperties(brand, newBrand);
+		return brandRepository.save(newBrand);
 	}
 
 }

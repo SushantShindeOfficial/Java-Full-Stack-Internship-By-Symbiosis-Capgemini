@@ -20,7 +20,9 @@ public class OwnerSaveServiceImple implements OwnerSaveService{
 	@Override
 	public Owner saveOwnerData(Owner owner) {
 		// TODO Auto-generated method stub
-		return ownerRepository.save(owner);
+		Owner newOwner = project.finalproject.factory.OwnerFactory.createOwner();
+		org.springframework.beans.BeanUtils.copyProperties(owner, newOwner);
+		return ownerRepository.save(newOwner);
 	}
 
 }

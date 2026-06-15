@@ -19,7 +19,9 @@ public class ShippingDetailsSaveServiceImple implements ShippingDetailsSaveServi
 	@Override
 	public ShippingDetails saveShippingDetailsData(ShippingDetails shippingDetails) {
 		// TODO Auto-generated method stub
-		return shippingDetailsRepository.save(shippingDetails);
+		ShippingDetails newShippingDetails = project.finalproject.factory.ShippingDetailsFactory.createShippingDetails();
+		org.springframework.beans.BeanUtils.copyProperties(shippingDetails, newShippingDetails);
+		return shippingDetailsRepository.save(newShippingDetails);
 	}
 
 }

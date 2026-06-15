@@ -20,7 +20,9 @@ public class CompanyResponseUpdateServiceImple implements CompanyResponseUpdateS
 	@Override
 	public CompanyResponse updateCompanyResponseData(CompanyResponse companyResponse, int id) {
 		// TODO Auto-generated method stub
-		CompanyResponse c1 = companyResponseRepository.findById(id).get();
+		CompanyResponse existingEntity = companyResponseRepository.findById(id).get();
+		CompanyResponse c1 = project.finalproject.factory.CompanyResponseFactory.createCompanyResponse();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, c1);
 		c1.setCustomerQueries(companyResponse.getCustomerQueries());
 		c1.setMessage(companyResponse.getMessage());
 		

@@ -20,7 +20,9 @@ public class SubCategorySaveServiceImple implements SubCategorySaveService{
 	@Override
 	public SubCategory saveSubCategoryData(SubCategory subCategory) {
 		// TODO Auto-generated method stub
-		return subCategoryRepository.save(subCategory);
+		SubCategory newSubCategory = project.finalproject.factory.SubCategoryFactory.createSubCategory();
+		org.springframework.beans.BeanUtils.copyProperties(subCategory, newSubCategory);
+		return subCategoryRepository.save(newSubCategory);
 	}
 
 }

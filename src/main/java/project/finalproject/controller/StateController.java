@@ -36,30 +36,30 @@ public class StateController {
 	@PostMapping("/saveState")
 	public ResponseEntity<State> saveState(@RequestBody State state) {
 		State e1 = stateSaveServiceImple.saveStateData(state);
-		return new ResponseEntity<State>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateState/{id}")
 	public ResponseEntity<State> updateState(@RequestBody State state, @PathVariable int id) {
 		State e1 = stateUpdateServiceImple.updateStateData(state, id);
-		return new ResponseEntity<State>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteState/{id}")
 	public ResponseEntity<String> deleteState(@PathVariable int id) {
 		stateDeleteServiceImple.deleteStateData(id);
-		return new ResponseEntity<String>("State deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("State deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleState/{id}")
 	public ResponseEntity<State> singleStateData(@PathVariable int id) {
 		State e1 = stateFetchServiceImple.fetchStateData(id);
-		return new ResponseEntity<State>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllStateData")
 	public ResponseEntity<List<State>> allStateData() {
 		List<State> l1 = stateFetchAllServiceImple.fetchAllStateData();
-		return new ResponseEntity<List<State>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

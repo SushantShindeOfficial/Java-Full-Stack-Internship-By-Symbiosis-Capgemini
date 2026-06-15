@@ -20,7 +20,9 @@ public class ManagerUpdateServiceImple implements ManagerUpdateService{
 	@Override
 	public Manager updateManagerData(Manager manager, int id) {
 		// TODO Auto-generated method stub
-		Manager m = managerRepository.findById(id).get();
+		Manager existingEntity = managerRepository.findById(id).get();
+		Manager m = project.finalproject.factory.ManagerFactory.createManager();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, m);
 		m.setName(manager.getName());
 		m.setAdhar(manager.getAdhar());
 		m.setPanno(manager.getPanno());

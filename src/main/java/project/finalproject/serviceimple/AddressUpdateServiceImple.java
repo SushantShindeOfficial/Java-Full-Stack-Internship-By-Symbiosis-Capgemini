@@ -20,7 +20,9 @@ public class AddressUpdateServiceImple implements AddressUpdateService{
 	@Override
 	public Address updateAddressData(Address address, int flatno) {
 		// TODO Auto-generated method stub
-		Address a = addressRepository.findById(flatno).get();
+		Address existingEntity = addressRepository.findById(flatno).get();
+		Address a = project.finalproject.factory.AddressFactory.createAddress();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, a);
 		a.setArea(address.getArea());
 		a.setTown(address.getTown());
 		a.setTaluka(address.getTaluka());

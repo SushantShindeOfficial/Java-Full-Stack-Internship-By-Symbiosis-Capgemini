@@ -20,7 +20,9 @@ public class UserSaveServiceImple implements UserSaveService{
 		@Override
 		public User saveUserData(User user) {
 			// TODO Auto-generated method stub
-			return userRepository.save(user);
+			User newUser = project.finalproject.factory.UserFactory.createUser();
+		org.springframework.beans.BeanUtils.copyProperties(user, newUser);
+		return userRepository.save(newUser);
 		}
 
 	}

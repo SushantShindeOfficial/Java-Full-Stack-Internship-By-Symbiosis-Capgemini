@@ -19,7 +19,9 @@ public class CountrySaveServiceImple implements CountrySaveService{
 	@Override
 	public Country saveCountryData(Country country) {
 		// TODO Auto-generated method stub
-		return countryRepository.save(country);
+		Country newCountry = project.finalproject.factory.CountryFactory.createCountry();
+		org.springframework.beans.BeanUtils.copyProperties(country, newCountry);
+		return countryRepository.save(newCountry);
 	}
 
 }

@@ -36,30 +36,30 @@ public class CompanyResponseController {
 	@PostMapping("/saveCompanyResponse")
 	public ResponseEntity<CompanyResponse> saveCompanyResponse(@RequestBody CompanyResponse companyResponse) {
 		CompanyResponse e1 = companyResponseSaveServiceImple.saveCompanyResponseData(companyResponse);
-		return new ResponseEntity<CompanyResponse>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateCompanyResponse/{id}")
 	public ResponseEntity<CompanyResponse> updateCompanyResponse(@RequestBody CompanyResponse companyResponse, @PathVariable int id) {
 		CompanyResponse e1 = companyResponseUpdateServiceImple.updateCompanyResponseData(companyResponse, id);
-		return new ResponseEntity<CompanyResponse>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteCompanyResponse/{id}")
 	public ResponseEntity<String> deleteCompanyResponse(@PathVariable int id) {
 		companyResponseDeleteServiceImple.deleteCompanyResponseData(id);
-		return new ResponseEntity<String>("CompanyResponse deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("CompanyResponse deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleCompanyResponse/{id}")
 	public ResponseEntity<CompanyResponse> singleCompanyResponseData(@PathVariable int id) {
 		CompanyResponse e1 = companyResponseFetchServiceImple.fetchCompanyResponseData(id);
-		return new ResponseEntity<CompanyResponse>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllCompanyResponseData")
 	public ResponseEntity<List<CompanyResponse>> allCompanyResponseData() {
 		List<CompanyResponse> l1 = companyResponseFetchAllServiceImple.fetchAllCompanyResponseData();
-		return new ResponseEntity<List<CompanyResponse>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

@@ -19,7 +19,9 @@ public class TalukaSaveServiceImple implements TalukaSaveService{
 	@Override
 	public Taluka saveTalukaData(Taluka taluka) {
 		// TODO Auto-generated method stub
-		return talukaRepository.save(taluka);
+		Taluka newTaluka = project.finalproject.factory.TalukaFactory.createTaluka();
+		org.springframework.beans.BeanUtils.copyProperties(taluka, newTaluka);
+		return talukaRepository.save(newTaluka);
 	}
 
 }

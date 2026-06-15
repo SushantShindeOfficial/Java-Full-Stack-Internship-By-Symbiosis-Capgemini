@@ -20,7 +20,9 @@ public class DistrictUpdateServiceImple implements DistrictUpdateService{
 	@Override
 	public District updateDistrictData(District district, int id) {
 		// TODO Auto-generated method stub
-		District d1 = districtRepository.findById(id).get();
+		District existingEntity = districtRepository.findById(id).get();
+		District d1 = project.finalproject.factory.DistrictFactory.createDistrict();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, d1);
 		d1.setName(district.getName());
 		d1.setTalukas(district.getTalukas());
 		

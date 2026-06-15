@@ -36,30 +36,30 @@ public class TalukaController {
 	@PostMapping("/saveTaluka")
 	public ResponseEntity<Taluka> saveTaluka(@RequestBody Taluka taluka) {
 		Taluka e1 = talukaSaveServiceImple.saveTalukaData(taluka);
-		return new ResponseEntity<Taluka>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateTaluka/{id}")
 	public ResponseEntity<Taluka> updateTaluka(@RequestBody Taluka taluka, @PathVariable int id) {
 		Taluka e1 = talukaUpdateServiceImple.updateTalukaData(taluka, id);
-		return new ResponseEntity<Taluka>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteTaluka/{id}")
 	public ResponseEntity<String> deleteTaluka(@PathVariable int id) {
 		talukaDeleteServiceImple.deleteTalukaData(id);
-		return new ResponseEntity<String>("Taluka deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Taluka deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleTaluka/{id}")
 	public ResponseEntity<Taluka> singleTalukaData(@PathVariable int id) {
 		Taluka e1 = talukaFetchServiceImple.fetchTalukaData(id);
-		return new ResponseEntity<Taluka>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllTalukaData")
 	public ResponseEntity<List<Taluka>> allTalukaData() {
 		List<Taluka> l1 = talukaFetchAllServiceImple.fetchAllTalukaData();
-		return new ResponseEntity<List<Taluka>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

@@ -36,30 +36,30 @@ public class UpiController {
 	@PostMapping("/saveUpi")
 	public ResponseEntity<Upi> saveUpi(@RequestBody Upi upi) {
 		Upi e1 = upiSaveServiceImple.saveUpiData(upi);
-		return new ResponseEntity<Upi>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateUpi/{uid}")
 	public ResponseEntity<Upi> updateUpi(@RequestBody Upi upi, @PathVariable int uid) {
 		Upi e1 = upiUpdateServiceImple.updateUpiData(upi, uid);
-		return new ResponseEntity<Upi>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteUpi/{uid}")
 	public ResponseEntity<String> deleteUpi(@PathVariable int uid) {
-		upiDeleteServiceImple.deleteUpiData(uid);
-		return new ResponseEntity<String>("Upi deleted Successfully", HttpStatus.OK);
+		upiDeleteServiceImple.deleteupiData(uid);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Upi deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleUpi/{uid}")
 	public ResponseEntity<Upi> singleUpiData(@PathVariable int uid) {
 		Upi e1 = upiFetchServiceImple.fetchUpiData(uid);
-		return new ResponseEntity<Upi>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllUpiData")
 	public ResponseEntity<List<Upi>> allUpiData() {
-		List<Upi> l1 = upiFetchAllServiceImple.fetchAllUpiData();
-		return new ResponseEntity<List<Upi>>(l1, HttpStatus.OK);
+		List<Upi> l1 = upiFetchAllServiceImple.fecthallUpiData();
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

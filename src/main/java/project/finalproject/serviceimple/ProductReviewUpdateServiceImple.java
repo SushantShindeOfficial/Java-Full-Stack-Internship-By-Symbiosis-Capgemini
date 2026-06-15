@@ -20,7 +20,9 @@ public class ProductReviewUpdateServiceImple implements ProductReviewUpdateServi
 	@Override
 	public ProductReview updateProductReviewData(ProductReview productReview, int prid) {
 		// TODO Auto-generated method stub
-		ProductReview o1=productReviewRepository.findById(prid).get();
+		ProductReview existingEntity = productReviewRepository.findById(prid).get();
+		ProductReview o1 = project.finalproject.factory.ProductReviewFactory.createProductReview();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setReview(productReview.getReview());
 		o1.setProduct(productReview.getProduct());
 		return productReviewRepository.save(o1);

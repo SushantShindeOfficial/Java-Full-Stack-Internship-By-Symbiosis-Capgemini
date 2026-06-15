@@ -20,7 +20,9 @@ public class CustomerQueryUpdateServiceImple implements CustomerQueryUpdateServi
 	@Override
 	public CustomerQuery updateCustomerQueryData(CustomerQuery customerQuery, int id) {
 		// TODO Auto-generated method stub
-		CustomerQuery c1 = customerQueryRepository.findById(id).get();
+		CustomerQuery existingEntity = customerQueryRepository.findById(id).get();
+		CustomerQuery c1 = project.finalproject.factory.CustomerQueryFactory.createCustomerQuery();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, c1);
 		c1.setShippingdetails(customerQuery.getShippingdetails());
 		c1.setInvoice(customerQuery.getInvoice());
 		

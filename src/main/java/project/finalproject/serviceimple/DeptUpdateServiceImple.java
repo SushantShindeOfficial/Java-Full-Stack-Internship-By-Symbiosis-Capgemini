@@ -20,7 +20,9 @@ public class DeptUpdateServiceImple implements DeptUpdateService{
 	@Override
 	public Dept updateDeptData(Dept dept, int did) {
 		// TODO Auto-generated method stub
-		Dept d = deptRepository.findById(did).get();
+		Dept existingEntity = deptRepository.findById(did).get();
+		Dept d = project.finalproject.factory.DeptFactory.createDept();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, d);
 		d.setName(dept.getName());
 		d.setManager(dept.getManager());
 		d.setEmployees(dept.getEmployees());

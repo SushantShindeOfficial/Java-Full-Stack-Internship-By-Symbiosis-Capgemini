@@ -19,7 +19,9 @@ public class InvoiceSaveServiceImple implements InvoiceSaveService{
 	@Override
 	public Invoice saveInvoiceData(Invoice invoice) {
 		// TODO Auto-generated method stub
-		return invoiceRepository.save(invoice);
+		Invoice newInvoice = project.finalproject.factory.InvoiceFactory.createInvoice();
+		org.springframework.beans.BeanUtils.copyProperties(invoice, newInvoice);
+		return invoiceRepository.save(newInvoice);
 	}
 
 }

@@ -36,30 +36,30 @@ public class TownController {
 	@PostMapping("/saveTown")
 	public ResponseEntity<Town> saveTown(@RequestBody Town town) {
 		Town e1 = townSaveServiceImple.saveTownData(town);
-		return new ResponseEntity<Town>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateTown/{id}")
 	public ResponseEntity<Town> updateTown(@RequestBody Town town, @PathVariable int id) {
 		Town e1 = townUpdateServiceImple.updateTownData(town, id);
-		return new ResponseEntity<Town>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteTown/{id}")
 	public ResponseEntity<String> deleteTown(@PathVariable int id) {
 		townDeleteServiceImple.deleteTownData(id);
-		return new ResponseEntity<String>("Town deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Town deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleTown/{id}")
 	public ResponseEntity<Town> singleTownData(@PathVariable int id) {
 		Town e1 = townFetchServiceImple.fetchTownData(id);
-		return new ResponseEntity<Town>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllTownData")
 	public ResponseEntity<List<Town>> allTownData() {
 		List<Town> l1 = townFetchAllServiceImple.fetchAllTownData();
-		return new ResponseEntity<List<Town>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

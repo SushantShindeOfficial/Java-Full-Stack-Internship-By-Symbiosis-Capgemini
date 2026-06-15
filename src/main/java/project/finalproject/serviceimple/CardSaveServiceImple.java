@@ -19,7 +19,9 @@ public class CardSaveServiceImple implements CardSaveService{
 	@Override
 	public Card saveCardData(Card card) {
 		// TODO Auto-generated method stub
-		return cardRepository.save(card);
+		Card newCard = project.finalproject.factory.CardFactory.createCard();
+		org.springframework.beans.BeanUtils.copyProperties(card, newCard);
+		return cardRepository.save(newCard);
 	}
 
 }

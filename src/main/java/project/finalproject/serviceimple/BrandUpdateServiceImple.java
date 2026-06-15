@@ -20,7 +20,9 @@ public class BrandUpdateServiceImple implements BrandUpdateService{
 	@Override
 	public Brand updateBrandData(Brand brand, int bid) {
 		// TODO Auto-generated method stub
-		Brand o1=brandRepository.findById(bid).get();
+		Brand existingEntity = brandRepository.findById(bid).get();
+		Brand o1 = project.finalproject.factory.BrandFactory.createBrand();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, o1);
 		o1.setName(brand.getName());
 		o1.setProducts(brand.getProducts());
 		o1.setCategories(brand.getCategories());

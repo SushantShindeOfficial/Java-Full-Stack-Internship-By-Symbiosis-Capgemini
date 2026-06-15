@@ -20,7 +20,9 @@ public class AdminSaveServiceImple implements AdminSaveService{
 	@Override
 	public Admin saveAdminData(Admin admin) {
 		// TODO Auto-generated method stub
-		return adminRepository.save(admin);
+		Admin newAdmin = project.finalproject.factory.AdminFactory.createAdmin();
+		org.springframework.beans.BeanUtils.copyProperties(admin, newAdmin);
+		return adminRepository.save(newAdmin);
 	}
 
 }

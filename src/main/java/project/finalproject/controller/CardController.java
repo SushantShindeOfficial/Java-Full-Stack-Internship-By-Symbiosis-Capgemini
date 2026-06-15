@@ -36,30 +36,30 @@ public class CardController {
 	@PostMapping("/saveCard")
 	public ResponseEntity<Card> saveCard(@RequestBody Card card) {
 		Card e1 = cardSaveServiceImple.saveCardData(card);
-		return new ResponseEntity<Card>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateCard/{cid}")
 	public ResponseEntity<Card> updateCard(@RequestBody Card card, @PathVariable int cid) {
 		Card e1 = cardUpdateServiceImple.updateCardData(card, cid);
-		return new ResponseEntity<Card>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteCard/{cid}")
 	public ResponseEntity<String> deleteCard(@PathVariable int cid) {
 		cardDeleteServiceImple.deleteCardData(cid);
-		return new ResponseEntity<String>("Card deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Card deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleCard/{cid}")
 	public ResponseEntity<Card> singleCardData(@PathVariable int cid) {
 		Card e1 = cardFetchServiceImple.fetchCardData(cid);
-		return new ResponseEntity<Card>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllCardData")
 	public ResponseEntity<List<Card>> allCardData() {
 		List<Card> l1 = cardFetchAllServiceImple.fetchAllCardData();
-		return new ResponseEntity<List<Card>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

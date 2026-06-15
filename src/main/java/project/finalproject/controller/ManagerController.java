@@ -36,30 +36,30 @@ public class ManagerController {
 	@PostMapping("/saveManager")
 	public ResponseEntity<Manager> saveManager(@RequestBody Manager manager) {
 		Manager e1 = managerSaveServiceImple.saveManagerData(manager);
-		return new ResponseEntity<Manager>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateManager/{id}")
 	public ResponseEntity<Manager> updateManager(@RequestBody Manager manager, @PathVariable int id) {
 		Manager e1 = managerUpdateServiceImple.updateManagerData(manager, id);
-		return new ResponseEntity<Manager>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteManager/{id}")
 	public ResponseEntity<String> deleteManager(@PathVariable int id) {
 		managerDeleteServiceImple.deleteManagerData(id);
-		return new ResponseEntity<String>("Manager deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Manager deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleManager/{id}")
 	public ResponseEntity<Manager> singleManagerData(@PathVariable int id) {
 		Manager e1 = managerFetchServiceImple.fetchManagerData(id);
-		return new ResponseEntity<Manager>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllManagerData")
 	public ResponseEntity<List<Manager>> allManagerData() {
 		List<Manager> l1 = managerFetchAllServiceImple.fetchAllManagerData();
-		return new ResponseEntity<List<Manager>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }

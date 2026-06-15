@@ -19,7 +19,9 @@ public class TypeSaveServiceImple implements TypeSaveService{
 	@Override
 	public Type saveTypeData(Type type) {
 		// TODO Auto-generated method stub
-		return typeRepository.save(type);
+		Type newType = project.finalproject.factory.TypeFactory.createType();
+		org.springframework.beans.BeanUtils.copyProperties(type, newType);
+		return typeRepository.save(newType);
 	}
 
 }

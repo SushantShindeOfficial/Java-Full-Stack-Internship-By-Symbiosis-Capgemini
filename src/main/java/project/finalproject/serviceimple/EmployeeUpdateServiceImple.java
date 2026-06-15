@@ -20,7 +20,9 @@ public class EmployeeUpdateServiceImple implements EmployeeUpdateService{
 	@Override
 	public Employee updateEmployeeData(Employee employee, int id) {
 		// TODO Auto-generated method stub
-		Employee e = employeeRepository.findById(id).get();
+		Employee existingEntity = employeeRepository.findById(id).get();
+		Employee e = project.finalproject.factory.EmployeeFactory.createEmployee();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, e);
 		e.setName(employee.getName());
 		e.setAdhar(employee.getAdhar());
 		e.setPanno(employee.getPanno());

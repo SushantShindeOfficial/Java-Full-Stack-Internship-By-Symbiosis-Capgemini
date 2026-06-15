@@ -20,7 +20,9 @@ public class FeedbackUpdateServiceImple implements FeedbackUpdateService{
 	@Override
 	public Feedback updateFeedbackData(Feedback feedback, int id) {
 		// TODO Auto-generated method stub
-		Feedback f1 = feedbackRepository.findById(id).get();
+		Feedback existingEntity = feedbackRepository.findById(id).get();
+		Feedback f1 = project.finalproject.factory.FeedbackFactory.createFeedback();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, f1);
 		f1.setCquery(feedback.getCquery());
 		f1.setcResponse(feedback.getcResponse());
 		

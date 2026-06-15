@@ -20,7 +20,9 @@ public class CountryUpdateServiceImple implements CountryUpdateService{
 	@Override
 	public Country updateCountryData(Country country, int id) {
 		// TODO Auto-generated method stub
-		Country c1 = countryRepository.findById(id).get();
+		Country existingEntity = countryRepository.findById(id).get();
+		Country c1 = project.finalproject.factory.CountryFactory.createCountry();
+		org.springframework.beans.BeanUtils.copyProperties(existingEntity, c1);
 		c1.setName(country.getName());
 		c1.setStates(country.getStates());
 		

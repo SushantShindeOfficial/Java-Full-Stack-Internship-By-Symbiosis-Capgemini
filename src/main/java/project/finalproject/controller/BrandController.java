@@ -36,30 +36,30 @@ public class BrandController {
 	@PostMapping("/saveBrand")
 	public ResponseEntity<Brand> saveBrand(@RequestBody Brand brand) {
 		Brand e1 = brandSaveServiceImple.saveBrandData(brand);
-		return new ResponseEntity<Brand>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/updateBrand/{bid}")
 	public ResponseEntity<Brand> updateBrand(@RequestBody Brand brand, @PathVariable int bid) {
 		Brand e1 = brandUpdateServiceImple.updateBrandData(brand, bid);
-		return new ResponseEntity<Brand>(e1, HttpStatus.CREATED);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/deleteBrand/{bid}")
 	public ResponseEntity<String> deleteBrand(@PathVariable int bid) {
 		brandDeleteServiceImple.deleteBrandData(bid);
-		return new ResponseEntity<String>("Brand deleted Successfully", HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity("Brand deleted Successfully", HttpStatus.OK);
 	}
 
 	@GetMapping("/SingleBrand/{bid}")
 	public ResponseEntity<Brand> singleBrandData(@PathVariable int bid) {
 		Brand e1 = brandFetchServiceImple.fetchBrandData(bid);
-		return new ResponseEntity<Brand>(e1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(e1, HttpStatus.OK);
 	}
 
 	@GetMapping("/AllBrandData")
 	public ResponseEntity<List<Brand>> allBrandData() {
 		List<Brand> l1 = brandFetchAllServiceImple.fetchAllBrandData();
-		return new ResponseEntity<List<Brand>>(l1, HttpStatus.OK);
+		return project.finalproject.factory.ResponseEntityFactory.createResponseEntity(l1, HttpStatus.OK);
 	}
 }
