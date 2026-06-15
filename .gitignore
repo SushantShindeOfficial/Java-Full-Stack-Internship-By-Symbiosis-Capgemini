@@ -1,5 +1,8 @@
 .metadata/
+<<<<<<< HEAD
 .sonarlint/
+=======
+>>>>>>> be29cfe3971cdb4b65894813a6cad786b4066125
 **/target/
 **/bin/
 **/.settings/
