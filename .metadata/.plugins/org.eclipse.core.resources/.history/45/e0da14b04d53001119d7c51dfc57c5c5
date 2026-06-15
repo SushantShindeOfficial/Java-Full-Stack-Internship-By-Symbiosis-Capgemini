@@ -1,7 +1,0 @@
-package springboot.LayerdArchi.demo.entity;
-
-public class Address implements Serializable{
-	private int AddressID;
-	private String FlatOwnerName;
-	private String 
-}

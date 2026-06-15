@@ -1,5 +1,0 @@
-package hibernate.hibernate.manytomany.serviceImpl;
-
-public class FetchSubjectImple {
-
-}

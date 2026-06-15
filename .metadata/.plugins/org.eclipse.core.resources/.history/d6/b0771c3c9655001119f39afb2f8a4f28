@@ -1,8 +1,0 @@
-package springboot.springboot.demo3.entity5;
-
-public class Card {
-	private int cardId;
-	private String cardNumber;
-	private String bankName;
-	private double amount;
-}

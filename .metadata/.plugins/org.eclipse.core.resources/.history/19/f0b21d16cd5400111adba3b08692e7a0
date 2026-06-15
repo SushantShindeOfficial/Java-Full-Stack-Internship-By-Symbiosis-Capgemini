@@ -1,7 +1,0 @@
-package springboot.springboot.demo3.entity2;
-
-public class Student {
-	private int id;
-	private String name;
-	
-}

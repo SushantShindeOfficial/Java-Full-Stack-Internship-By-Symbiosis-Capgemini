@@ -1,8 +1,0 @@
-package springboot.springboot.demo.entity;
-
-public class Dept {
-	 private int did;
-	    private String name;
-
-	    private List<Employee> employees;
-}

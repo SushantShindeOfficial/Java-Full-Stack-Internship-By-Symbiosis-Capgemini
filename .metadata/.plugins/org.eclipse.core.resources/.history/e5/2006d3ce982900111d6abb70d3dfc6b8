@@ -1,7 +1,0 @@
-package com.flipcart.regitration;
-
-public class Test1 {
-	public static void main(String[] args) {
-		Data d1=new GrandChild();
-	}
-}

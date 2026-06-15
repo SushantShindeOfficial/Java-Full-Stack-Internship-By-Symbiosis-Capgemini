@@ -1,9 +1,0 @@
-package springboot.springboot.demo3.entity5;
-
-import java.util.Date;
-
-public class Invoice {
-	private int invoiceId;
-	private String invoiceDate;
-	private double totalBillAmount;
-}
