@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Product 1 -->
+
+	<bean id="p1"
+		class="springboot.springboot.homework.demo.entity2.Product">
+
+		<property name="productId" value="101" />
+		<property name="productName" value="Laptop" />
+		<property name="company" value="HP" />
+		<property name="price" value="65000" />
+		<property name="quantity" value="5" />
+
+		<property name="colors">
+
+			<list>
+				<value>Black</value>
+				<value>Silver</value>
+			</list>
+
+		</property>
+
+		<property name="sizes">
+
+			<set>
+				<value>14 Inch</value>
+				<value>15 Inch</value>
+			</set>
+
+		</property>
+
+		<property name="specifications">
+
+			<map>
+
+				<entry key="RAM" value="16GB" />
+				<entry key="Storage" value="512GB SSD" />
+				<entry key="Processor" value="i7" />
+
+			</map>
+
+		</property>
+
+	</bean>
+
+	<!-- Product 2 -->
+
+	<bean id="p2"
+		class="springboot.springboot.homework.demo.entity2.Product">
+
+		<property name="productId" value="102" />
+		<property name="productName" value="Mobile" />
+		<property name="company" value="Samsung" />
+		<property name="price" value="35000" />
+		<property name="quantity" value="10" />
+
+		<property name="colors">
+
+			<list>
+				<value>Blue</value>
+				<value>White</value>
+			</list>
+
+		</property>
+
+		<property name="sizes">
+
+			<set>
+				<value>6 Inch</value>
+			</set>
+
+		</property>
+
+		<property name="specifications">
+
+			<map>
+
+				<entry key="RAM" value="8GB" />
+				<entry key="Storage" value="128GB" />
+				<entry key="Battery" value="5000mAh" />
+
+			</map>
+
+		</property>
+
+	</bean>
+
+	<!-- Category -->
+
+	<bean id="cat1"
+		class="springboot.springboot.homework.demo.entity2.Category">
+
+		<property name="categoryId" value="1" />
+		<property name="categoryName" value="Electronics" />
+		<property name="categoryType" value="Digital" />
+
+		<property name="products">
+
+			<list>
+
+				<ref bean="p1" />
+				<ref bean="p2" />
+
+			</list>
+
+		</property>
+
+		<property name="brands">
+
+			<set>
+
+				<value>HP</value>
+				<value>Samsung</value>
+
+			</set>
+
+		</property>
+
+		<property name="stock">
+
+			<map>
+
+				<entry key="Laptop" value="5" />
+				<entry key="Mobile" value="10" />
+
+			</map>
+
+		</property>
+
+	</bean>
+
+	<!-- Supplier -->
+
+	<bean id="sup1"
+		class="springboot.springboot.homework.demo.entity2.Supplier">
+
+		<property name="supplierId" value="201" />
+		<property name="supplierName" value="Tech Supplier" />
+		<property name="city" value="Pune" />
+		<property name="contact" value="9876543210" />
+
+		<property name="products">
+
+			<list>
+
+				<ref bean="p1" />
+				<ref bean="p2" />
+
+			</list>
+
+		</property>
+
+		<property name="countries">
+
+			<set>
+
+				<value>India</value>
+				<value>USA</value>
+
+			</set>
+
+		</property>
+
+		<property name="deliveryTime">
+
+			<map>
+
+				<entry key="Laptop" value="5" />
+				<entry key="Mobile" value="3" />
+
+			</map>
+
+		</property>
+
+	</bean>
+
+	<!-- Customer -->
+
+	<bean id="cust1"
+		class="springboot.springboot.homework.demo.entity2.Customer">
+
+		<property name="customerId" value="301" />
+		<property name="customerName" value="Sushant" />
+		<property name="city" value="Satara" />
+		<property name="mobile" value="9876541230" />
+
+		<property name="products">
+
+			<list>
+
+				<ref bean="p1" />
+				<ref bean="p2" />
+
+			</list>
+
+		</property>
+
+		<property name="wishlist">
+
+			<set>
+
+				<value>Electronics</value>
+				<value>Accessories</value>
+
+			</set>
+
+		</property>
+
+		<property name="ratings">
+
+			<map>
+
+				<entry key="Laptop" value="5" />
+				<entry key="Mobile" value="4" />
+
+			</map>
+
+		</property>
+
+	</bean>
+
+</beans>

@@ -1,0 +1,61 @@
+package springboot.springboot.homework.demo.entity2;
+
+import java.util.List;
+
+public class Country {
+	private int id;
+	private String name;
+	private String region;
+
+	private List<State> states;
+
+	public Country(int id, String name, String region, List<State> states) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.region = region;
+		this.states = states;
+	}
+
+	@Override
+	public String toString() {
+		return "Country [id=" + id + ", name=" + name + ", region=" + region + ", states=" + states + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public List<State> getStates() {
+		return states;
+	}
+
+	public void setStates(List<State> states) {
+		this.states = states;
+	}
+
+	public Country() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+}

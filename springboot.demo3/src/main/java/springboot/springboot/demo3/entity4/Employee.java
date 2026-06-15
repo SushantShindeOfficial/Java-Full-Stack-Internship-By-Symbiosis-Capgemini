@@ -1,0 +1,48 @@
+package springboot.springboot.demo3.entity4;
+
+public class Employee {
+	private int id;
+	private String name;
+	private Address address;
+	private String Salary;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public String getSalary() {
+		return Salary;
+	}
+	public void setSalary(String salary) {
+		Salary = salary;
+	}
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", Salary=" + Salary + "]";
+	}
+	public Employee(int id, String name, Address address, String salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		Salary = salary;
+	}
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+}

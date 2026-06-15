@@ -1,0 +1,6 @@
+package com.flipcart.regitration;
+
+public class Demo extends Data {
+	
+	
+}

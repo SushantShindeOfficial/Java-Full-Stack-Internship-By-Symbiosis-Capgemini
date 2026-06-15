@@ -1,0 +1,5 @@
+package hibernate.hbernate.demo.mtm.otm.entity;
+
+public class Emp {
+
+}

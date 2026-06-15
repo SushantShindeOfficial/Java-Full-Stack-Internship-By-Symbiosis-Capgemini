@@ -1,0 +1,23 @@
+package springboot.springboot.demo3.homework.entity5;
+
+import java.util.Date;
+import java.util.List;
+
+
+public class Admin {
+	private int adminId;
+	private String fullName;
+	private String aadharNumber;
+	private String panNumber;
+	private String email;
+	private String mobileNumber;
+	private Date dateOfBirth;
+	private Date joiningDate;
+	private String experience;
+	private double salary;
+	private String adminLevel;
+	private Company company;
+	private Department department;
+	private Role role;
+	private List<Address> addresses;
+}

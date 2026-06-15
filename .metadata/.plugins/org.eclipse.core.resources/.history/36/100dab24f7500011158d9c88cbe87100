@@ -1,0 +1,11 @@
+package hibernate.UserMngtSys.demo.entity;
+
+@Entity
+public class COD {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codId;
+	private double amount;
+	@ManyToOne
+	private User user;
+}

@@ -1,0 +1,10 @@
+package springboot.springboot.demo3.entity2;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class Data {
+	public Student abc() {
+		return new Student();
+	}
+}

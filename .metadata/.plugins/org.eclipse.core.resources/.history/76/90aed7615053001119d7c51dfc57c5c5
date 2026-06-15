@@ -1,0 +1,10 @@
+package springboot.spring.demo.framework.test;
+
+public class Employee {
+	private int id;
+	private String nameString;
+	private int salary;
+	private String city;
+	
+	
+}

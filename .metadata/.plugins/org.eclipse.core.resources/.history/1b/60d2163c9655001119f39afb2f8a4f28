@@ -1,0 +1,18 @@
+package springboot.springboot.demo3.entity5;
+
+import java.util.List;
+
+public class Company {
+	private int CompanyID;
+	private String CompanyName;
+	private String RegistrationNo;
+
+	private Owner owner;
+
+	private List<Manager> managers;
+
+	private List<Employee> employees;
+
+	private List<CompanyType> companyTypes; 
+	private List<Address> addresses;
+}

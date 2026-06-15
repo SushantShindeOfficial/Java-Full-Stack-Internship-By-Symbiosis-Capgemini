@@ -1,0 +1,5 @@
+package springboot.springboot.demo3.entity5;
+
+public class Company {
+
+}

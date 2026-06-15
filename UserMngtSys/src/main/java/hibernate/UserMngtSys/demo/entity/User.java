@@ -1,0 +1,112 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userId;
+	private String fullName;
+	private String aadharNumber;
+	private String panNumber;
+	private String email;
+	private String mobileNumber;
+	private Date dateOfBirth;
+	@OneToMany(mappedBy = "user")
+	private List<OrderEntity> orders;
+	@OneToMany(mappedBy = "user")
+	private List<ProductReview> reviews;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", fullName=" + fullName + ", aadharNumber=" + aadharNumber + ", panNumber="
+				+ panNumber + ", email=" + email + ", mobileNumber=" + mobileNumber + ", dateOfBirth=" + dateOfBirth
+				+ ", role=" + role + ", addresses=" + addresses + ", orders=" + orders + ", reviews=" + reviews + "]";
+	}
+	@ManyToOne
+	private Role role;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Address> addresses;
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public String getAadharNumber() {
+		return aadharNumber;
+	}
+	public void setAadharNumber(String aadharNumber) {
+		this.aadharNumber = aadharNumber;
+	}
+	public String getPanNumber() {
+		return panNumber;
+	}
+	public void setPanNumber(String panNumber) {
+		this.panNumber = panNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	public List<OrderEntity> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<OrderEntity> orders) {
+		this.orders = orders;
+	}
+	public List<ProductReview> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<ProductReview> reviews) {
+		this.reviews = reviews;
+	}
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+	
+}

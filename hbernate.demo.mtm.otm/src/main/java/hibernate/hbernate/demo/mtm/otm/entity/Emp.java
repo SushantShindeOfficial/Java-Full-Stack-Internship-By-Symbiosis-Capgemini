@@ -1,0 +1,59 @@
+package hibernate.hbernate.demo.mtm.otm.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Emp {
+
+	@Id
+	private int Empid;
+	private String Empname;
+	private String EmpAdd;
+	@ManyToMany
+	@JoinTable(name = "emp_deptt",
+			joinColumns = @JoinColumn(name = "emp_id"),
+			inverseJoinColumns = @JoinColumn(name = "dept_id"))
+	private List<Deptt> deptts;
+	public int getEmpid() {
+		return Empid;
+	}
+
+	public void setEmpid(int empid) {
+		Empid = empid;
+	}
+
+	public String getEmpname() {
+		return Empname;
+	}
+
+	public void setEmpname(String empname) {
+		Empname = empname;
+	}
+
+	public List<Deptt> getDeptts() {
+		return deptts;
+	}
+
+	public void setDeptts(List<Deptt> deptts) {
+		this.deptts = deptts;
+	}
+
+	public String getEmpAdd() {
+		return EmpAdd;
+	}
+
+	public void setEmpAdd(String empAdd) {
+		EmpAdd = empAdd;
+	}
+
+	@Override
+	public String toString() {
+		return "Emp [Empid=" + Empid + ", Empname=" + Empname + ", EmpAdd=" + EmpAdd + "]";
+	}
+}

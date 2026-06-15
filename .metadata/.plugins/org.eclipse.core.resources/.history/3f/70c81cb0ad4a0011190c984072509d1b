@@ -1,0 +1,151 @@
+package com.mapping.demo;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Management {
+
+	public void Univercitymngt() {
+
+//		Subject
+		Subject s1 = new Subject(1, "Java Dev");
+		Subject s2 = new Subject(2, "Python Dev");
+		Subject s3 = new Subject(3, "NodeJS Dev");
+
+		List<Subject> studsubl1 = new ArrayList<Subject>();
+		studsubl1.add(s1);
+		studsubl1.add(s2);
+		studsubl1.add(s3);
+
+		Subject s4 = new Subject(4, "Web Dev");
+		Subject s5 = new Subject(5, "Software Dev");
+		Subject s6 = new Subject(6, "Hardware Dev");
+
+		List<Subject> studsubl2 = new ArrayList<Subject>();
+		studsubl2.add(s4);
+		studsubl2.add(s5);
+		studsubl2.add(s6);
+
+		Subject s7 = new Subject(7, "Cloud Computing");
+		Subject s8 = new Subject(8, "Cyber Security");
+		Subject s9 = new Subject(9, "AI & ML");
+
+		List<Subject> studsubl3 = new ArrayList<Subject>();
+		studsubl3.add(s7);
+		studsubl3.add(s8);
+		studsubl3.add(s9);
+
+//		Student
+
+		Student st1 = new Student(201, "Sushant", "Satara", studsubl1);
+		Student st2 = new Student(202, "Ram", "Hyd", studsubl1);
+
+		List<Student> studl1 = new ArrayList<Student>();
+		studl1.add(st1);
+		studl1.add(st2);
+
+		Student st3 = new Student(203, "Onkar", "Pune", studsubl2);
+		Student st4 = new Student(204, "Parth", "Karad", studsubl2);
+
+		List<Student> studl2 = new ArrayList<Student>();
+		studl2.add(st3);
+		studl2.add(st4);
+
+		Student st5 = new Student(205, "Abhi", "Karandi", studsubl3);
+		Student st6 = new Student(206, "Aditya", "Narayanpur", studsubl3);
+
+		List<Student> studl3 = new ArrayList<Student>();
+		studl3.add(st5);
+		studl3.add(st6);
+
+//		Teacher
+
+		Teacher t1 = new Teacher(1, "Joey", "234567", studsubl1);
+		Teacher t2 = new Teacher(2, "Kart", "2385567", studsubl1);
+		Teacher t3 = new Teacher(3, "Marks", "2734567", studsubl1);
+
+		List<Teacher> tl1 = new ArrayList<Teacher>();
+		tl1.add(t1);
+		tl1.add(t2);
+		tl1.add(t3);
+
+		Teacher t4 = new Teacher(4, "Koli", "25334567", studsubl2);
+		Teacher t5 = new Teacher(5, "Onkarashwer", "2644567", studsubl2);
+		Teacher t6 = new Teacher(6, "Parto", "36452", studsubl2);
+
+		List<Teacher> tl2 = new ArrayList<Teacher>();
+		tl2.add(t4);
+		tl2.add(t5);
+		tl2.add(t6);
+
+		Teacher t7 = new Teacher(7, "Subaru", "74255", studsubl3);
+		Teacher t8 = new Teacher(8, "Jony", "248645", studsubl3);
+		Teacher t9 = new Teacher(9, "Jenefer", "34876", studsubl3);
+
+		List<Teacher> tl3 = new ArrayList<Teacher>();
+		tl3.add(t7);
+		tl3.add(t8);
+		tl3.add(t9);
+
+//		Hod
+
+		Hod h1 = new Hod(101, "Dr. Patil", "Satara", 85000);
+		Hod h2 = new Hod(102, "Dr. Sharma", "Pune", 90000);
+		Hod h3 = new Hod(103, "Dr. Koli", "Mumbai", 95000);
+
+//		Dept
+
+		Dept d1 = new Dept(301, "CSE", studl1, h1, tl1);
+		Dept d2 = new Dept(302, "ENTC", studl2, h2, tl2);
+		Dept d3 = new Dept(303, "MECH", studl3, h3, tl3);
+
+		List<Dept> deptl1 = new ArrayList<Dept>();
+		deptl1.add(d1);
+		deptl1.add(d2);
+
+		List<Dept> deptl2 = new ArrayList<Dept>();
+		deptl2.add(d3);
+
+		// ================= PRINCIPAL =================
+
+		Principal p1 = new Principal(401, "Mr. Anderson", "Satara", 120000);
+		Principal p2 = new Principal(402, "Mr. William", "Pune", 125000);
+
+		// ================= COLLEGE =================
+
+		College c1 = new College(501, "KBP College", null, deptl1, p1);
+		College c2 = new College(502, "DY Patil College", null, deptl2, p2);
+
+		List<College> collegel = new ArrayList<College>();
+		collegel.add(c1);
+		collegel.add(c2);
+
+		// ================= DEAN =================
+
+		Dean dean = new Dean(601, "Dr. Kulkarni", "Kolhapur", 150000);
+
+		// ================= UNIVERSITY =================
+
+		University u1 = new University(701, "Shivaji University", dean, collegel);
+
+		// ================= SET UNIVERSITY =================
+
+		c1.setU(u1);
+		c2.setU(u1);
+
+		// ================= MAP =================
+
+		Map<Integer, University> umap = new HashMap<Integer, University>();
+
+		umap.put(1, u1);
+
+		// ================= DISPLAY =================
+
+		for (Map.Entry<Integer, University> m : umap.entrySet()) {
+
+			System.out.println(m.getKey() + " " + m.getValue());
+		}
+	}
+}

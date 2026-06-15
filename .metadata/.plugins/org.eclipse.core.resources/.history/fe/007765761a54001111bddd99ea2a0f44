@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Address -->
+
+	<bean id="addr1"
+		class="springboot.springboot.homework.demo2.entity.Address">
+
+		<property name="flatno" value="101"/>
+		<property name="area" value="Shivaji Nagar"/>
+		<property name="town" value="Karad"/>
+		<property name="city" value="Satara"/>
+		<property name="pincode" value="415110"/>
+		<property name="state" value="Maharashtra"/>
+		<property name="country" value="India"/>
+
+	</bean>
+
+	<!-- Employee -->
+
+	<bean id="emp1"
+		class="springboot.springboot.homework.demo2.entity.Employee">
+
+		<property name="id" value="101"/>
+		<property name="name" value="Amit"/>
+		<property name="salary" value="45000"/>
+		<property name="mobId" value="9876543210"/>
+		<property name="adhar" value="123456789012"/>
+		<property name="pancard" value="ABCDE1234F"/>
+		<property name="address" ref="addr1"/>
+
+	</bean>
+
+	<!-- Department -->
+
+	<bean id="dept1"
+		class="springboot.springboot.homework.demo2.entity.Dept">
+
+		<property name="id" value="11"/>
+		<property name="name" value="IT"/>
+		<property name="building" value="A Wing"/>
+
+		<property name="emps">
+
+			<list>
+
+				<ref bean="emp1"/>
+
+			</list>
+
+		</property>
+
+	</bean>
+
+	<!-- Manager -->
+
+	<bean id="manager1"
+		class="springboot.springboot.homework.demo2.entity.Manager">
+
+		<property name="id" value="1"/>
+		<property name="name" value="Ramesh"/>
+		<property name="address" ref="addr1"/>
+
+		<property name="depts">
+
+			<list>
+
+				<ref bean="dept1"/>
+
+			</list>
+
+		</property>
+
+	</bean>
+
+	<!-- Branch -->
+
+	<bean id="branch1"
+		class="springboot.springboot.homework.demo2.entity.Branch">
+
+		<property name="branchId" value="1001"/>
+		<property name="name" value="Satara Branch"/>
+		<property name="address" ref="addr1"/>
+		<property name="manager" ref="manager1"/>
+
+		<property name="depts">
+
+			<list>
+
+				<ref bean="dept1"/>
+
+			</list>
+
+		</property>
+
+	</bean>
+
+	<!-- Owner -->
+
+	<bean id="owner1"
+		class="springboot.springboot.homework.demo2.entity.Owner">
+
+		<property name="id" value="1"/>
+		<property name="name" value="Suresh"/>
+		<property name="address" ref="addr1"/>
+
+	</bean>
+
+	<!-- Company -->
+
+	<bean id="company1"
+		class="springboot.springboot.homework.demo2.entity.Company">
+
+		<property name="regno" value="5001"/>
+		<property name="name" value="TCS"/>
+
+		<property name="owner" ref="owner1"/>
+
+		<property name="branches">
+
+			<list>
+
+				<ref bean="branch1"/>
+
+			</list>
+
+		</property>
+
+		<property name="address">
+
+			<list>
+
+				<ref bean="addr1"/>
+
+			</list>
+
+		</property>
+
+	</bean>
+
+</beans>

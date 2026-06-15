@@ -1,0 +1,15 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Taluka {
+	@Id
+	private int TalukaID;
+	private String TalukaName;
+	
+	@ManyToOne
+	private District district;
+}

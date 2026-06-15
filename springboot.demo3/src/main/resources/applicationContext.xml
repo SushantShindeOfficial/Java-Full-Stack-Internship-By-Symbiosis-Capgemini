@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean name="emp" class="springboot.springboot.demo3.entity.Employee"
+		scope="singleton">
+
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="Sushant Shinde"></constructor-arg>
+		<constructor-arg value="123456789012"></constructor-arg>
+		<constructor-arg value="ABCDE1234F"></constructor-arg>
+		<constructor-arg value="sushant@example.com"></constructor-arg>
+		<constructor-arg value="9876543210"></constructor-arg>
+		<constructor-arg value="2004-08-01"></constructor-arg>
+		<constructor-arg value="2025-05-21"></constructor-arg>
+		<constructor-arg value="2 Years"></constructor-arg>
+		<constructor-arg value="45000.0"></constructor-arg>
+
+	</bean>
+	<bean name="emp1" class="springboot.springboot.demo3.entity.Employee"
+		scope="prototype">
+
+		<property name="employeeId" value="101"></property>
+		<property name="fullName" value="Sushant Shinde"></property>
+		<property name="aadharNumber" value="123456789012"></property>
+		<property name="panNumber" value="ABCDE1234F"></property>
+		<property name="email" value="sushant@example.com"></property>
+		<property name="mobileNumber" value="9876543210"></property>
+		<property name="dateOfBirth" value="2004-08-01"></property>
+		<property name="joiningDate" value="2025-05-21"></property>
+		<property name="experience" value="2 Years"></property>
+		<property name="salary" value="45000.0"></property>
+
+	</bean>
+
+</beans>

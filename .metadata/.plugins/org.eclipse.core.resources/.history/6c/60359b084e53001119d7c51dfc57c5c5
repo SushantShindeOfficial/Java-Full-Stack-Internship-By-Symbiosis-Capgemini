@@ -1,0 +1,12 @@
+package springboot.LayerdArchi.demo.entity;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable{
+	private int EmpID;
+	private String EmpName;
+	private String EmpCity;
+	private Address address;
+	private Float Empsalary;
+	
+}	

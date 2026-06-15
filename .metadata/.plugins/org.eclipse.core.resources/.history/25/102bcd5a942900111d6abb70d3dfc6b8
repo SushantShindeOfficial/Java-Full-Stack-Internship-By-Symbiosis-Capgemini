@@ -1,0 +1,26 @@
+package com.flipcart.regitration;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		Student s1=new Student();
+		Child c1=new Child();
+		Scanner s=new Scanner(System.in);
+		System.out.println("College Management System");
+		
+		System.out.println("1. Admin");
+		System.out.println("2. Student business");
+		System.out.println("3. Non Teaching ");
+		System.out.println("4. Student");
+		System.out.println("Enter your Choice");
+		int choice=s.nextInt();
+		switch (choice) {
+		case 1: {
+			
+			s1.getData();
+			s1.displayData();
+			break();
+		}
+	}
+}

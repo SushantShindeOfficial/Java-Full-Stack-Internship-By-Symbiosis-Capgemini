@@ -1,0 +1,10 @@
+package springboot.springboot.demo3.entity5;
+
+import java.util.List;
+
+
+public class Brand {
+	private int brandId;
+	private String brandName;
+	private List<Product> products;
+}

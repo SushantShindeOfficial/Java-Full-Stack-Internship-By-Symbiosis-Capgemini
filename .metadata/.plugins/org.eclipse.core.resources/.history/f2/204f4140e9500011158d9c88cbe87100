@@ -1,0 +1,11 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Country {
+	@Id
+	private int countryID;
+	private String countryName;
+}

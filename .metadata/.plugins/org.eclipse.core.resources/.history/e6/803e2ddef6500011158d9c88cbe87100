@@ -1,0 +1,18 @@
+package hibernate.UserMngtSys.demo.entity;
+
+@Entity
+public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int productId;
+	private String productName;
+	private String description;
+	private double price;
+	private int quantity;
+	@ManyToOne
+	private Brand brand;
+	@ManyToOne
+	private SubCategory subCategory;
+	@OneToMany(mappedBy = "product")
+	private List<ProductReview> reviews;
+}

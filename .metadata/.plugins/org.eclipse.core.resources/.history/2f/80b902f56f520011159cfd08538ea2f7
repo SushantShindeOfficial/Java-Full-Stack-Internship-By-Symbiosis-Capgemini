@@ -1,0 +1,88 @@
+package hibernate.hbernate.demo.mtm.otm.serviceImple;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
+import hibernate.hbernate.demo.mtm.otm.dbconnection.DBConnection;
+import hibernate.hbernate.demo.mtm.otm.entity.Deptt;
+import hibernate.hbernate.demo.mtm.otm.entity.Emp;
+import hibernate.hbernate.demo.mtm.otm.service.createservice;
+
+public class createServiceImple implements createservice{
+
+	@Override
+	public void adddata() {
+		// TODO Auto-generated method stub
+		EntityManager eManager=DBConnection.dbconn().createEntityManager();
+		eManager.getTransaction().begin();
+		
+		Emp emp1=new Emp();
+		emp1.setEmpid(101);
+		emp1.setEmpname("dcvfdbg");
+		emp1.setEmpAdd("satara");
+		emp1.setDeptts(null);
+		
+		Emp emp2=new Emp();
+		emp2.setEmpid(101);
+		emp2.setEmpname("dcvfdbg");
+		emp2.setEmpAdd("satara");
+		
+		Emp emp3=new Emp();
+		emp3.setEmpid(101);
+		emp3.setEmpname("dcvfdbg");
+		emp3.setEmpAdd("satara");
+		
+		Emp emp4=new Emp();
+		emp4.setEmpid(101);
+		emp4.setEmpname("dcvfdbg");
+		emp4.setEmpAdd("satara");
+		
+		ArrayList<Emp> emps1=new ArrayList<Emp>();
+		emps1.add(emp1);
+		emps1.add(emp2);
+		
+		
+		ArrayList<Emp> emps2=new ArrayList<Emp>();
+		emps2.add(emp1);
+		emps2.add(emp2);
+		
+		
+		Deptt deptt1=new Deptt();
+		deptt1.setDeptid(201);
+		deptt1.setDeptname("IT");
+		deptt1.setDeptAdd("Kolhapur");
+		
+		Deptt deptt2=new Deptt();
+		deptt2.setDeptid(201);
+		deptt2.setDeptname("IT");
+		deptt2.setDeptAdd("Kolhapur");
+
+		Deptt deptt3=new Deptt();
+		deptt3.setDeptid(201);
+		deptt3.setDeptname("IT");
+		deptt3.setDeptAdd("Kolhapur");
+		
+		Deptt deptt4=new Deptt();
+		deptt4.setDeptid(201);
+		deptt4.setDeptname("IT");
+		deptt4.setDeptAdd("Kolhapur");
+		
+		ArrayList<Deptt> deptts1=new ArrayList<Deptt>();
+		deptts1.add(deptt1);
+		deptts1.add(deptt2);
+		
+		ArrayList<Deptt> deptts2=new ArrayList<Deptt>();
+		deptts2.add(deptt3);
+		deptts2.add(deptt4);
+		
+		
+		
+		
+		eManager.getTransaction().commit();
+		
+	}
+
+}

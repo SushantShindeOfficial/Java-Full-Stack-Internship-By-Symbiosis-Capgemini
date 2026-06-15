@@ -1,0 +1,5 @@
+package springboot.springboot.demo.entity;
+
+public class Ceo {
+
+}

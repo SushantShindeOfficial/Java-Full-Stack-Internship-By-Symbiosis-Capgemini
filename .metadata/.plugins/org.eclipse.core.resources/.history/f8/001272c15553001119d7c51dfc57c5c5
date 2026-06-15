@@ -1,0 +1,10 @@
+package springboot.springboot.demo.entity;
+
+public class Ceo {
+	  private int id;
+	    private String name;
+	    private float salary;
+
+	    private Address address;
+
+}

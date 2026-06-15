@@ -1,0 +1,50 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class UPI {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int upiId;
+	private String upiNumber;
+	private double amount;
+	@ManyToOne(targetEntity = User.class)
+	private User user;
+	public UPI() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "UPI [upiId=" + upiId + ", upiNumber=" + upiNumber + ", amount=" + amount + ", user=" + user + "]";
+	}
+	public int getUpiId() {
+		return upiId;
+	}
+	public void setUpiId(int upiId) {
+		this.upiId = upiId;
+	}
+	public String getUpiNumber() {
+		return upiNumber;
+	}
+	public void setUpiNumber(String upiNumber) {
+		this.upiNumber = upiNumber;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+}

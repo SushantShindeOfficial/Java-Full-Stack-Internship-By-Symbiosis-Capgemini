@@ -1,0 +1,7 @@
+package springboot.springboot.demo3.entity5;
+
+public class CompanyType {
+
+	private int typeID;
+	private String TyprName;
+}

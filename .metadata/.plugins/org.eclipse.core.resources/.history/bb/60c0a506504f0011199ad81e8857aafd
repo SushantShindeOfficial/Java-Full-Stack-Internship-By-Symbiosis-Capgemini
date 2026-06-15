@@ -1,0 +1,15 @@
+package hibernate.dept.serviceImple;
+
+import hibernate.dept.service.CreateDeptService;
+
+public class CreateDeptServiceImple implements CreateDeptService{
+
+	@Override
+	public void addData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+}

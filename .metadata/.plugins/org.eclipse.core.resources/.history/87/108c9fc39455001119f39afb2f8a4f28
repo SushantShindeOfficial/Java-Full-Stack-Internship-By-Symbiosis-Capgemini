@@ -1,0 +1,17 @@
+package springboot.springboot.demo3.entity5;
+
+import java.util.Date;
+import java.util.List;
+
+public class OrderEntity {
+	private int orderId;
+	private Date orderDate;
+	private double totalAmount;
+	private String orderStatus;
+	private User user;
+	private List<Product> products;
+	private PaymentMode paymentMode;
+	private Shipping shipping;
+	private Invoice invoice;
+	private Tracking tracking;
+}

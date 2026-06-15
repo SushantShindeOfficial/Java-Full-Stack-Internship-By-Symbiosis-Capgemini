@@ -1,0 +1,12 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class CompanyType {
+	@Id
+	private int typeID;
+	private String TyprName;
+	
+}

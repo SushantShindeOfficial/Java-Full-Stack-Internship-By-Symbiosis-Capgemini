@@ -1,0 +1,9 @@
+package springboot.springboot.demo3.entity5;
+
+import hibernate.UserMngtSys.demo.entity.Country;
+
+public class State {
+	private int stateId;
+	private String sateteName;
+	private Country contry;
+}

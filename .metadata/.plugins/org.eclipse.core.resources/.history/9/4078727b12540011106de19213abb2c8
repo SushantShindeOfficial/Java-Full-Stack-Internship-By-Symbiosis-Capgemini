@@ -1,0 +1,5 @@
+package springboot.springboot.demo2.entity;
+
+public class Supplier {
+
+}

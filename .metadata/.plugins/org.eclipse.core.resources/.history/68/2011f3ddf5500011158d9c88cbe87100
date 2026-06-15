@@ -1,0 +1,31 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Manager {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int managerId;
+	private String fullName;
+	private String aadharNumber;
+	private String panNumber;
+	private String email;
+	private String mobileNumber;
+	private Date dateOfBirth;
+	private Date joiningDate;
+	private String experience;
+	private double salary;
+	@ManyToOne
+	private Company company;
+	@ManyToOne
+	private Department department;
+	@ManyToOne
+	private Role role;
+	@OneToMany(mappedBy = "manager")
+	private List<Employee> employees;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Address> addresses;
+
+}

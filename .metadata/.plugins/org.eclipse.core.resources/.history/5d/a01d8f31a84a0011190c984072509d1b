@@ -1,0 +1,23 @@
+package com.mapping.demo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Management {
+	public void Univercitymngt() {
+		
+		Subject s1=new Subject(1, "Java Dev");
+		Subject s2=new Subject(2, "Python Dev");
+		Subject s3=new Subject(3, "NodJS Dev");
+		List<Subject> l1=new ArrayList<Subject>();
+		l1.add(s1);
+		l1.add(s2);
+		l1.add(s3);
+		
+		Subject s4=new Subject(4, "WEb Dev");
+		Subject s5=new Subject(5, "Soft Dev");
+		Subject s6=new Subject(6, "Hardware Dev");
+		
+	}
+}

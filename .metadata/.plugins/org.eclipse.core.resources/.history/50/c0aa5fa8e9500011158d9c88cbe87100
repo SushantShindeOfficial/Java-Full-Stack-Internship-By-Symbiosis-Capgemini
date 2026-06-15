@@ -1,0 +1,13 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class State {
+	@Id
+	private int stateId;
+	private String sateteName;
+	private Country contry;
+	
+}

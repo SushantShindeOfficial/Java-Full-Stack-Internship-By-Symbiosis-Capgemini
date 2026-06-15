@@ -1,0 +1,68 @@
+package springboot.springboot.homework.demo2;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import springboot.springboot.homework.demo2.entity.Branch;
+import springboot.springboot.homework.demo2.entity.Company;
+import springboot.springboot.homework.demo2.entity.Dept;
+import springboot.springboot.homework.demo2.entity.Employee;
+import springboot.springboot.homework.demo2.entity.Manager;
+import springboot.springboot.homework.demo2.entity.Owner;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		// Company Bean
+		Company c1 = (Company) applicationContext.getBean("company1");
+
+		// Company Details
+		System.out.println(c1.getRegno());
+		System.out.println(c1.getName());
+		System.out.println(c1.getAddress());
+
+		// Owner Details
+		Owner o1 = c1.getOwner();
+
+		System.out.println(o1.getId());
+		System.out.println(o1.getName());
+		System.out.println(o1.getAddress());
+
+		// Branch Details
+		Branch b1 = c1.getBranches().get(0);
+
+		System.out.println(b1.getBranchId());
+		System.out.println(b1.getName());
+		System.out.println(b1.getAddress());
+
+		// Manager Details
+		Manager m1 = b1.getManager();
+
+		System.out.println(m1.getId());
+		System.out.println(m1.getName());
+		System.out.println(m1.getAddress());
+
+		// Department Details
+		Dept d1 = b1.getDepts().get(0);
+
+		System.out.println(d1.getId());
+		System.out.println(d1.getName());
+		System.out.println(d1.getBuilding());
+
+		// Employee Details
+		Employee e1 = d1.getEmps().get(0);
+
+		System.out.println(e1.getId());
+		System.out.println(e1.getName());
+		System.out.println(e1.getSalary());
+		System.out.println(e1.getMobId());
+		System.out.println(e1.getAdhar());
+		System.out.println(e1.getPancard());
+		System.out.println(e1.getAddress());
+	}
+}

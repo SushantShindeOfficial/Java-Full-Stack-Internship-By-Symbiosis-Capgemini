@@ -1,0 +1,10 @@
+package com.collection.set.demo;
+
+import java.util.TreeSet;
+
+public class TreesetDemo {
+	public static void main(String[] args) {
+		TreeSet t1=new TreeSet();
+		
+	}
+}

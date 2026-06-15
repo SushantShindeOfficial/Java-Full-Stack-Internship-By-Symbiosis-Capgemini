@@ -1,0 +1,10 @@
+package springboot.springboot.demo3.homework.entity5;
+
+import java.util.Date;
+
+public class Shipping {
+	private int shippingId;
+	private String shippingStatus;
+	private Date expectedDeliveryDate;
+	private Address deliveryAddress;
+}

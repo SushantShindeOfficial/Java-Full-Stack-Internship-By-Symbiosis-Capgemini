@@ -1,0 +1,12 @@
+package com.mapping.demo;
+
+public class Management {
+	public void Univercitymngt() {
+		Subject s1=new Subject(1, "Java Dev");
+		Subject s1=new Subject(2, "Python Dev");
+		Subject s1=new Subject(3, "NodJS Dev");
+		Subject s1=new Subject(4, "WEb Dev");
+		Subject s1=new Subject(5, "Soft Dev");
+		Subject s1=new Subject(6, "Hardware Dev");
+	}
+}

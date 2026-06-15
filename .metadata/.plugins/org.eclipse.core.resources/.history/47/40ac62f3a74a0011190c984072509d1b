@@ -1,0 +1,7 @@
+package com.mapping.demo;
+
+public class Management {
+	public void Univercitymngt() {
+		
+	}
+}

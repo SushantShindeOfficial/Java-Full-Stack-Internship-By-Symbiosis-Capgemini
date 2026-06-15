@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        
+<!---<bean id="abc" class="google.spring.Employee">
+	<constructor-arg value="101"></constructor-arg>
+	<constructor-arg value="Onkar"></constructor-arg>
+	<constructor-arg value="Saswad"></constructor-arg>
+</bean>
+
+<bean id="pqp" class="google.spring.Employee">
+	<property name="id" value="101"></property>
+	<property name="name" value="Onkar"></property>
+	<property name="city" value="Saswad"></property>
+</bean>
+-->
+
+<bean id="a1" class="google.spring.entity.Adhress">
+	<constructor-arg value="243"></constructor-arg>
+	<constructor-arg value="Ambodi Road"></constructor-arg>
+	<constructor-arg value="Saswad"></constructor-arg>
+	<constructor-arg value="Purandar"></constructor-arg>
+	<constructor-arg value="Pune"></constructor-arg>
+	<constructor-arg value="Maharashtra"></constructor-arg>
+	<constructor-arg value="India"></constructor-arg>
+</bean>
+
+<bean id="a2" class="google.spring.entity.Adhress">
+	<constructor-arg value="244"></constructor-arg>
+	<constructor-arg value="Ambodi Road"></constructor-arg>
+	<constructor-arg value="Ambodi"></constructor-arg>
+	<constructor-arg value="Purandar"></constructor-arg>
+	<constructor-arg value="Pune"></constructor-arg>
+	<constructor-arg value="Maharashtra"></constructor-arg>
+	<constructor-arg value="India"></constructor-arg>
+</bean>
+
+
+<bean id="a3" class="google.spring.entity.Adhress">
+	<constructor-arg value="245"></constructor-arg>
+	<constructor-arg value="HadKo"></constructor-arg>
+	<constructor-arg value="Saswad"></constructor-arg>
+	<constructor-arg value="Purandar"></constructor-arg>
+	<constructor-arg value="Pune"></constructor-arg>
+	<constructor-arg value="Maharashtra"></constructor-arg>
+	<constructor-arg value="India"></constructor-arg>
+</bean>
+
+
+
+
+<bean id="emp1" class="google.spring.entity.Employee">
+	<property name="id" value="101"></property>
+	<property name="name" value="Onkar"></property>
+	<property name="adhress"><ref bean="a1"/></property>
+	<property name="salary" value="30000"></property>
+	<property name="dept" value="DEV"></property>
+</bean>
+
+<bean id="emp2" class="google.spring.entity.Employee">
+	<property name="id" value="102"></property>
+	<property name="name" value="Chinmay"></property>
+	<property name="adhress"><ref bean="a2"/></property>
+	<property name="salary" value="90000"></property>
+	<property name="dept" value="Manager"></property>
+</bean>
+
+<bean id="emp3" class="google.spring.entity.Employee">
+	<property name="id" value="103"></property>
+	<property name="name" value="Padyal"></property>
+	<property name="adhress"><ref bean="a3"/></property>
+	<property name="salary" value="100000"></property>
+	<property name="dept" value="CTO"></property>
+</bean>
+
+
+<bean id="dept1" class="google.spring.entity.Dept">
+	<property name="id" value="1"></property>
+	<property name="name" value="IT"></property>
+	<property name="employee">
+	<list>
+		<ref bean="emp1"/>
+		<ref bean="emp3"/>
+	</list>
+	</property>
+	
+</bean>
+
+
+<bean id="dept2" class="google.spring.entity.Dept">
+	<property name="id" value="2"></property>
+	<property name="name" value="HR"></property>
+	<property name="employee">
+	<list>
+		<ref bean="emp2"/>	
+	</list>
+	</property>
+	
+</bean>
+
+
+        
+</beans>

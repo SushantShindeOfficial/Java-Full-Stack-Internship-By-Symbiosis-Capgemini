@@ -1,0 +1,25 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import java.util.Date;
+import java.util.List;
+
+//import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Person {
+	@Id
+	
+	private int Personid;
+	private String FullPersonName;
+	private String PersonAddharNO;
+	private String PersonStringPanNo;
+	private String PersonEmail;
+	private Date PersonDOB;
+	private String PrsonMobNo;
+//	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Address.class)
+	private List<Address> addresses;
+}

@@ -1,0 +1,31 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Company {
+	@Id
+	private int CompanyID;
+	private String CompanyName;
+	private String RegistrationNo;
+	
+	@OneToOne
+	private Owner owner;
+	
+	@OneToMany(targetEntity = Manager.class)
+	private List<Manager> managers;
+	
+	@OneToMany(mappedBy = "company")
+	private List<Employee> employees;
+	
+	@OneToMany(mappedBy = "company")
+	private List<Department> departments;
+	
+	
+	
+}

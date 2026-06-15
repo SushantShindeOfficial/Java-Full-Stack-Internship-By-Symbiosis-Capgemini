@@ -1,0 +1,12 @@
+package springboot.springboot.homework;
+
+import java.util.List;
+
+public class Dept {
+	private int id;
+	private String name;
+	private String building;
+
+	private List<Student> students;
+	private List<Teacher> teachers;
+}

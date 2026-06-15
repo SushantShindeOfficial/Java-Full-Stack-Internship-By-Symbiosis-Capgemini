@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;hibernate.mapping.manytoone/src/main/resources/META-INF/persistent.xml&apos; to &apos;persistence.xml&apos;" description="Rename resource &apos;persistent.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/META-INF/persistent.xml" name="persistence.xml" stamp="1778740076258" updateReferences="true"/>
+</session>

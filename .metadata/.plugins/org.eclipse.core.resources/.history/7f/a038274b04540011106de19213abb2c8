@@ -1,0 +1,73 @@
+package springboot.springboot.homework.demo.entity2;
+
+public class Address {
+	private int flatno;
+	private String area;
+	private String town;
+	private String city;
+	private String pincode;
+	private String state;
+	private String country;
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Address(int flatno, String area, String town, String city, String pincode, String state, String country) {
+		super();
+		this.flatno = flatno;
+		this.area = area;
+		this.town = town;
+		this.city = city;
+		this.pincode = pincode;
+		this.state = state;
+		this.country = country;
+	}
+	@Override
+	public String toString() {
+		return "Address [flatno=" + flatno + ", area=" + area + ", town=" + town + ", city=" + city + ", pincode="
+				+ pincode + ", state=" + state + ", country=" + country + "]";
+	}
+	public int getFlatno() {
+		return flatno;
+	}
+	public void setFlatno(int flatno) {
+		this.flatno = flatno;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String getTown() {
+		return town;
+	}
+	public void setTown(String town) {
+		this.town = town;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getPincode() {
+		return pincode;
+	}
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+}

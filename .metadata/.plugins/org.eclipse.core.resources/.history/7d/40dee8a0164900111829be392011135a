@@ -1,0 +1,16 @@
+package moto.edge70fusion.serviceImple;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
+import moto.edge70fusion.service.DeleteService;
+
+public class DeleteServiceImple implements DeleteService{
+	private final static String delete = "delete from tblemployee where id=?,name=?,city=?";
+	@Override
+	public void DeleteEmp() throws SQLException, ClassNotFoundException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package springboot.springboot.demo3.entity5;
+
+import java.util.Date;
+import java.util.List;
+
+public class Person {
+	private int Personid;
+	private String FullPersonName;
+	private String PersonAddharNO;
+	private String PersonStringPanNo;
+	private String PersonEmail;
+	private Date PersonDOB;
+	private String PrsonMobNo;
+	private List<Address> addresses;
+}

@@ -1,0 +1,11 @@
+package hibernate.UserMngtSys.demo.entity;
+
+@Entity
+public class Tracking {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int trackingId;
+	private String trackingNumber;
+	private String currentLocation;
+	private String deliveryStatus;
+}

@@ -1,0 +1,17 @@
+package springboot.springboot.demo3.entity5;
+
+
+public class Manager {
+	private int managerId;
+	private String fullName;
+	private String aadharNumber;
+	private String panNumber;
+	private String email;
+	private String mobileNumber;
+	private String dateOfBirth;
+	private String joiningDate;
+	private String experience;
+	private double salary;
+	private Company company;
+	private Department department;
+}

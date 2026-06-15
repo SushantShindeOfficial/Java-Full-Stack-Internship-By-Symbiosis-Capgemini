@@ -1,0 +1,13 @@
+package springboot.springboot.demo.entity;
+
+import java.util.List;
+
+public class Org {
+	private int regNo;
+	private String name;
+
+	private List<Address> address;
+	private List<Dept> depts;
+
+	private Ceo ceo;
+}

@@ -1,0 +1,12 @@
+package springboot.springboot.homework.demo.entity2;
+
+public class Address {
+	private int flatno;
+	private String area;
+	private String town;
+	private String city;
+	private String pincode;
+	private String state;
+	private String country;
+
+}

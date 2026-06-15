@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;hp-15s/src/main/resources/meta-inf&apos; to &apos;META-INF&apos;" description="Rename resource &apos;meta-inf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/meta-inf" name="META-INF" stamp="1778650012253" updateReferences="true"/>
+</session>

@@ -1,0 +1,9 @@
+package com.flipcart.regitration;
+
+public abstract class Demo extends Data {
+	void display()
+	{
+		System.out.println("This is Display method implementation ");
+	}
+	
+}

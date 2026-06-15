@@ -1,0 +1,64 @@
+package springboot.springboot.demo2;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import springboot.springboot.demo2.entity.Category;
+import springboot.springboot.demo2.entity.Customer;
+import springboot.springboot.demo2.entity.Product;
+import springboot.springboot.demo2.entity.Supplier;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+	public static void main(String[] args) {
+
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		// Product
+		Product p1 = (Product) applicationContext.getBean("p1");
+
+		System.out.println(p1.getProductId());
+		System.out.println(p1.getProductName());
+		System.out.println(p1.getCompany());
+		System.out.println(p1.getPrice());
+		System.out.println(p1.getQuantity());
+		System.out.println(p1.getColors());
+		System.out.println(p1.getSizes());
+		System.out.println(p1.getSpecifications());
+
+		// Category
+		Category c1 = (Category) applicationContext.getBean("cat1");
+
+		System.out.println(c1.getCategoryId());
+		System.out.println(c1.getCategoryName());
+		System.out.println(c1.getCategoryType());
+		System.out.println(c1.getProducts());
+		System.out.println(c1.getBrands());
+		System.out.println(c1.getStock());
+
+		// Supplier
+		Supplier s1 = (Supplier) applicationContext.getBean("sup1");
+
+		System.out.println(s1.getSupplierId());
+		System.out.println(s1.getSupplierName());
+		System.out.println(s1.getCity());
+		System.out.println(s1.getContact());
+		System.out.println(s1.getProducts());
+		System.out.println(s1.getCountries());
+		System.out.println(s1.getDeliveryTime());
+
+		// Customer
+		Customer cust1 = (Customer) applicationContext.getBean("cust1");
+
+		System.out.println(cust1.getCustomerId());
+		System.out.println(cust1.getCustomerName());
+		System.out.println(cust1.getCity());
+		System.out.println(cust1.getMobile());
+		System.out.println(cust1.getProducts());
+		System.out.println(cust1.getWishlist());
+		System.out.println(cust1.getRatings());
+	}
+}

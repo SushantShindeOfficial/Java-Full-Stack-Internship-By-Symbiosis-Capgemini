@@ -1,0 +1,14 @@
+package hibernate.UserMngtSys.demo.entity;
+
+@Entity
+public class ProductReview {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int reviewId;
+	private String reviewMessage;
+	private int rating;
+	@ManyToOne
+	private Product product;
+	@ManyToOne
+	private User user;
+}

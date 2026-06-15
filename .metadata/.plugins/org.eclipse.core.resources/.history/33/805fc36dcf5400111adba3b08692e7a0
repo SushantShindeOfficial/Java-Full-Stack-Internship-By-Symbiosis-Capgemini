@@ -1,0 +1,13 @@
+package springboot.springboot.demo3;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import springboot.springboot.demo3.entity3.Bean1;
+
+public class Entity3Test {
+	public static void main(String[] args) {
+		ApplicationContext applicationContext=new AnnotationConfigApplicationContext(Bean1.class);
+		applicationContext.getBean("abc");
+	}
+}

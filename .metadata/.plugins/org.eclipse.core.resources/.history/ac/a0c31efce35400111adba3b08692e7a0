@@ -1,0 +1,122 @@
+package springboot.springboot.demo3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import springboot.springboot.demo3.entity4.Address;
+import springboot.springboot.demo3.entity4.Bean3;
+import springboot.springboot.demo3.entity4.Ceo;
+import springboot.springboot.demo3.entity4.Dept;
+import springboot.springboot.demo3.entity4.Employee;
+import springboot.springboot.demo3.entity4.Org;
+
+public class Entity4Test {
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Bean3.class);
+
+		Address a1 = (Address) applicationContext.getBean("addr");
+		a1.setFlatNo(1);
+		a1.setCity("Satara");
+		a1.setArea("Devi Calony");
+		a1.setPincode("415101");
+		a1.setTown("SAngli");
+
+		Address a2 = new Address();
+		a2.setFlatNo(2);
+		a2.setArea("Shivaji Nagar");
+		a2.setTown("Miraj");
+		a2.setCity("Sangli");
+		a2.setPincode("416410");
+
+		Employee e1 = (Employee) applicationContext.getBean("emp");
+		e1.setId(101);
+		e1.setName("Jerry");
+		e1.setSalary("7656754");
+		e1.setAddress(a1);
+
+		Employee e2 = new Employee();
+
+		e2.setId(102);
+		e2.setName("Tom");
+		e2.setSalary("65000");
+		e2.setAddress(a2);
+
+		Employee e3 = new Employee();
+
+		e3.setId(103);
+		e3.setName("Sham");
+		e3.setSalary("85000");
+		e3.setAddress(a1);
+
+		List<Employee> empList1 = new ArrayList<Employee>();
+
+		empList1.add(e1);
+		empList1.add(e2);
+
+		List<Employee> empList2 = new ArrayList<Employee>();
+
+		empList2.add(e3);
+
+		Dept d1 = (Dept) applicationContext.getBean("dept");
+
+		d1.setDid(11);
+		d1.setDeptName("Computer");
+		d1.setEmployees(empList1);
+
+		Dept d2 = new Dept();
+
+		d2.setDid(12);
+		d2.setDeptName("Mech");
+		
+		d2.setEmployees(empList2);
+
+		List<Dept> deptList = new ArrayList<Dept>();
+
+		deptList.add(d1);
+		deptList.add(d2);
+
+		Ceo c1 = (Ceo) applicationContext.getBean("ceo");
+
+		c1.setId(1001);
+		c1.setName("Ratan Tata");
+		c1.setSalary("1500000");
+		c1.setAddress(a1);
+
+		List<Address> addList = new ArrayList<Address>();
+
+		addList.add(a1);
+		addList.add(a2);
+
+		Org o1 = (Org) applicationContext.getBean("org");
+
+		o1.setRegNo(5001);
+		o1.setName("Infosys");
+
+		o1.setAddress(addList);
+		o1.setDepts(deptList);
+		o1.setCeo(c1);
+
+		System.out.println(o1.getRegNo());
+		System.out.println(o1.getName());
+
+		System.out.println(o1.getCeo().getId());
+		System.out.println(o1.getCeo().getName());
+		System.out.println(o1.getCeo().getSalary());
+
+		for (Dept d : o1.getDepts()) {
+			System.out.println("Department ID : " + d.getDid());
+			System.out.println("Department Name : " + d.getDeptName());
+
+			for (Employee e : d.getEmployees()) {
+				System.out.println("Employee ID : " + e.getId());
+				System.out.println("Employee Name : " + e.getName());
+				System.out.println("Employee Salary : " + e.getSalary());
+
+				System.out.println("Employee Address : " + e.getAddress().getCity());
+			}
+		}
+	}
+}

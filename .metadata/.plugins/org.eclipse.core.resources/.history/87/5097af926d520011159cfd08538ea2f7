@@ -1,0 +1,33 @@
+package hibernate.hbernate.demo.mtm.otm.serviceImple;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
+import hibernate.hbernate.demo.mtm.otm.dbconnection.DBConnection;
+import hibernate.hbernate.demo.mtm.otm.entity.Deptt;
+import hibernate.hbernate.demo.mtm.otm.entity.Emp;
+import hibernate.hbernate.demo.mtm.otm.service.createservice;
+
+public class createServiceImple implements createservice{
+
+	@Override
+	public void adddata() {
+		// TODO Auto-generated method stub
+		EntityManager eManager=DBConnection.dbconn().createEntityManager();
+		eManager.getTransaction();
+		
+		Emp emp=new Emp();
+		emp.setEmpid(101);
+		emp.setEmpname("dcvfdbg");
+		emp.setEmpAdd("satara");
+		
+		Deptt deptt=new Deptt();
+		deptt.setDeptid(201);
+		deptt.setDeptname("IT");
+		deptt.setDeptAdd("Kolhapur");
+		
+		eManager.getTransaction().commit();
+		
+	}
+
+}

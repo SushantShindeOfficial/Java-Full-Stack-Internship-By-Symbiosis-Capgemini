@@ -1,0 +1,5 @@
+package hibernate.UserMngtSys.demo.entity;
+
+public class Address {
+
+}

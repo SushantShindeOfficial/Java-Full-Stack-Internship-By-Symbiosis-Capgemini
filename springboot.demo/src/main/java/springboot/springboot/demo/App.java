@@ -1,0 +1,21 @@
+package springboot.springboot.demo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import springboot.springboot.demo.entity.Org;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		Org org = (Org) applicationContext.getBean("org1");
+		
+		System.out.println(org);
+		System.out.println("Executed");
+
+		
+	}
+}

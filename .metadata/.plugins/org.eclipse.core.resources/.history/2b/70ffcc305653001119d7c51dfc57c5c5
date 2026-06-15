@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Address Beans -->
+
+	<bean id="addr1" class="springboot.springboot.demo.entity.Address">
+
+		<property name="flatno" value="101"/>
+		<property name="area" value="Shivaji Nagar"/>
+		<property name="town" value="Karad"/>
+		<property name="city" value="Satara"/>
+		<property name="pincode" value="415110"/>
+
+	</bean>
+
+	<bean id="addr2" class="springboot.springboot.demo.entity.Address">
+
+		<property name="flatno" value="202"/>
+		<property name="area" value="Raj Colony"/>
+		<property name="town" value="Patan"/>
+		<property name="city" value="Satara"/>
+		<property name="pincode" value="415206"/>
+
+	</bean>
+
+	<!-- CEO Bean -->
+
+	<bean id="ceo1" class="springboot.springboot.demo.entity.Ceo">
+
+		<property name="id" value="1"/>
+		<property name="name" value="Ramesh"/>
+		<property name="salary" value="950000"/>
+
+		<property name="address" ref="addr1"/>
+
+	</bean>
+
+	<!-- Employee Beans -->
+
+	<bean id="emp1" class="springboot.springboot.demo.entity.Employee">
+
+		<property name="id" value="101"/>
+		<property name="name" value="Amit"/>
+		<property name="salary" value="45000"/>
+
+		<property name="address" ref="addr1"/>
+
+	</bean>
+
+	<bean id="emp2" class="springboot.springboot.demo.entity.Employee">
+
+		<property name="id" value="102"/>
+		<property name="name" value="Rahul"/>
+		<property name="salary" value="55000"/>
+
+		<property name="address" ref="addr2"/>
+
+	</bean>
+
+	<!-- Department Bean -->
+
+	<bean id="dept1" class="springboot.springboot.demo.entity.Dept">
+
+		<property name="did" value="11"/>
+		<property name="name" value="IT"/>
+
+		<property name="employees">
+
+			<list>
+
+				<ref bean="emp1"/>
+				<ref bean="emp2"/>
+
+			</list>
+
+		</property>
+
+	</bean>
+
+	<!-- Organization Bean -->
+
+	<bean id="org1" class="springboot.springboot.demo.entity.Org">
+
+		<property name="regNo" value="5001"/>
+		<property name="name" value="TCS"/>
+
+		<property name="ceo" ref="ceo1"/>
+
+		<property name="address">
+
+			<list>
+
+				<ref bean="addr1"/>
+				<ref bean="addr2"/>
+
+			</list>
+
+		</property>
+
+		<property name="depts">
+
+			<list>
+
+				<ref bean="dept1"/>
+
+			</list>
+
+		</property>
+
+	</bean>
+
+</beans>

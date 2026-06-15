@@ -1,0 +1,39 @@
+package hibernate.UserMngtSys.demo.entity;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Employee extends Person {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int employeeId;
+	private String fullName;
+	private String aadharNumber;
+	private String panNumber;
+	private String email;
+	private String mobileNumber;
+	private Date dateOfBirth;
+	private Date joiningDate;
+	private String experience;
+	private double salary;
+	@ManyToOne
+	private Company company;
+	@ManyToOne
+	private Department department;
+	@ManyToOne
+	private Manager manager;
+	@ManyToOne
+	private Role role;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Address> addresses;
+
+}

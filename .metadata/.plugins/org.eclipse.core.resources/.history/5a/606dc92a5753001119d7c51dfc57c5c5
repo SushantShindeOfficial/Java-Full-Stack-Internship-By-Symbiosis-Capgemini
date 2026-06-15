@@ -1,0 +1,59 @@
+package springboot.springboot.demo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import springboot.springboot.demo.entity.Ceo;
+import springboot.springboot.demo.entity.Dept;
+import springboot.springboot.demo.entity.Employee;
+import springboot.springboot.demo.entity.Org;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		// Fetch Org Bean
+		Org org = (Org) applicationContext.getBean("org1");
+
+		System.out.println("========== Organization Details ==========");
+		System.out.println(org);
+
+		// CEO Details
+		System.out.println("\n========== CEO Details ==========");
+
+		Ceo ceo = org.getCeo();
+
+		System.out.println(ceo);
+		System.out.println(ceo.getId());
+		System.out.println(ceo.getName());
+		System.out.println(ceo.getSalary());
+		System.out.println(ceo.getAddress());
+
+		// Department Details
+		System.out.println("\n========== Department Details ==========");
+
+		for (Dept dept : org.getDepts()) {
+
+			System.out.println(dept);
+
+			// Employee Details
+			System.out.println("\n========== Employee Details ==========");
+
+			for (Employee e1 : dept.getEmployees()) {
+
+				// Getter Injection
+				System.out.println(e1);
+
+				// Setter Injection
+				System.out.println(e1.getId());
+				System.out.println(e1.getName());
+				System.out.println(e1.getSalary());
+				System.out.println(e1.getAddress());
+
+				System.out.println("--------------------------------");
+			}
+		}
+	}
+}

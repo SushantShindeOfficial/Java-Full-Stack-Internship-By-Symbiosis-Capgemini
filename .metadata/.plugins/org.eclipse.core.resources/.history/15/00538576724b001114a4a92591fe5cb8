@@ -1,0 +1,16 @@
+package com.javafilehandling.demo;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Testdemo {
+	public static void main(String[] args) throws IOException {
+		File f1=new File("abc.txt");
+		FileOutputStream f2=new FileOutputStream(f1);//Write into the file
+		f2.write(97);
+		f2.close();
+		System.out.println("File Execution is Done");
+		
+	}
+}

@@ -1,0 +1,5 @@
+package hibernate.hbernate.demo.mtm.otm.dbconnection;
+
+public class DBConnection {
+
+}

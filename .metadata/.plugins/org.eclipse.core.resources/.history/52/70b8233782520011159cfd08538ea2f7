@@ -1,0 +1,5 @@
+package hibernate.hibernate.demo.jpql.dbconnection;
+
+public class DBConnection {
+
+}

@@ -1,0 +1,34 @@
+package google.chat.test;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import hibernate.demo.jpql.task.dbconnection.DbConnection;
+
+public class TestStudent {
+	public static void main(String[] args) {
+		EntityManager em = DbConnection.dbCon().createEntityManager();
+		em.getTransaction().begin();
+
+		Query q1 = em.createQuery( "select c.cid, c.cname, s.sname " +
+						"from Course c LEFT JOIN c.students s");
+
+		List<Object[]> list = q1.getResultList();
+
+		for(Object[] obj : list) {
+
+			System.out.println(
+					obj[0] + " " +
+							obj[1] + " " +
+							obj[2]
+					);
+		}
+
+		em.getTransaction().commit();
+	}
+}
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="a1" class="springboot.LayerdArchi.demo.entity.Address">
+
+		<constructor-arg value="1"></constructor-arg>
+		<constructor-arg value="415101"></constructor-arg>
+		<constructor-arg value="Devi Colony"></constructor-arg>
+		<constructor-arg value="Satara"></constructor-arg>
+		<constructor-arg value="Satara"></constructor-arg>
+		<constructor-arg value="India"></constructor-arg>
+
+	</bean>
+
+	<bean id="emp" class="springboot.LayerdArchi.demo.entity.Employee">
+
+		<property name="EmpID" value="101"></property>
+		<property name="EmpName" value="Sushant"></property>
+		<property name="EmpCity" value="Satara"></property>
+		<property name="address">
+			<ref bean="a1" />
+		</property>
+		<property name="salary" value="101"></property>
+
+	</bean>
+
+</beans>
