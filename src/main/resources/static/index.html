@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Commerce Admin Dashboard - Manage products, orders, users, and more with a premium admin interface.">
+    <title>E-Commerce Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Ambient Background Orbs -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                            <rect x="2" y="2" width="10" height="10" rx="3" fill="#4361ee"/>
+                            <rect x="16" y="2" width="10" height="10" rx="3" fill="#7209b7" opacity="0.8"/>
+                            <rect x="2" y="16" width="10" height="10" rx="3" fill="#06d6a0" opacity="0.8"/>
+                            <rect x="16" y="16" width="10" height="10" rx="3" fill="#4361ee" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>AdminPanel</h1>
+                        <span>E-Commerce Suite</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav" id="sidebarNav">
+                <!-- Dashboard Home -->
+                <div class="nav-item active" data-entity="dashboard" id="nav-dashboard">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">Dashboard</span>
+                </div>
+
+                <!-- People Management -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="people">
+                        <span>👥 People Management</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-people">
+                        <div class="nav-item" data-entity="User" id="nav-User"><span class="nav-dot"></span>User</div>
+                        <div class="nav-item" data-entity="Admin" id="nav-Admin"><span class="nav-dot"></span>Admin</div>
+                        <div class="nav-item" data-entity="Role" id="nav-Role"><span class="nav-dot"></span>Role</div>
+                        <div class="nav-item" data-entity="Owner" id="nav-Owner"><span class="nav-dot"></span>Owner</div>
+                        <div class="nav-item" data-entity="Manager" id="nav-Manager"><span class="nav-dot"></span>Manager</div>
+                        <div class="nav-item" data-entity="Employee" id="nav-Employee"><span class="nav-dot"></span>Employee</div>
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="company">
+                        <span>🏢 Company</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-company">
+                        <div class="nav-item" data-entity="Company" id="nav-Company"><span class="nav-dot"></span>Company</div>
+                        <div class="nav-item" data-entity="Type" id="nav-Type"><span class="nav-dot"></span>Type</div>
+                        <div class="nav-item" data-entity="Dept" id="nav-Dept"><span class="nav-dot"></span>Dept</div>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="products">
+                        <span>📦 Products</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-products">
+                        <div class="nav-item" data-entity="Product" id="nav-Product"><span class="nav-dot"></span>Product</div>
+                        <div class="nav-item" data-entity="Category" id="nav-Category"><span class="nav-dot"></span>Category</div>
+                        <div class="nav-item" data-entity="SubCategory" id="nav-SubCategory"><span class="nav-dot"></span>SubCategory</div>
+                        <div class="nav-item" data-entity="Brand" id="nav-Brand"><span class="nav-dot"></span>Brand</div>
+                        <div class="nav-item" data-entity="ProductReview" id="nav-ProductReview"><span class="nav-dot"></span>Product Review</div>
+                    </div>
+                </div>
+
+                <!-- Orders & Payments -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="orders">
+                        <span>🛒 Orders & Payments</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-orders">
+                        <div class="nav-item" data-entity="Orders" id="nav-Orders"><span class="nav-dot"></span>Orders</div>
+                        <div class="nav-item" data-entity="PaymentMode" id="nav-PaymentMode"><span class="nav-dot"></span>Payment Mode</div>
+                        <div class="nav-item" data-entity="Card" id="nav-Card"><span class="nav-dot"></span>Card</div>
+                        <div class="nav-item" data-entity="Upi" id="nav-Upi"><span class="nav-dot"></span>UPI</div>
+                        <div class="nav-item" data-entity="Cod" id="nav-Cod"><span class="nav-dot"></span>COD</div>
+                    </div>
+                </div>
+
+                <!-- Shipping -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="shipping">
+                        <span>📦 Shipping</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-shipping">
+                        <div class="nav-item" data-entity="ShippingDetails" id="nav-ShippingDetails"><span class="nav-dot"></span>Shipping Details</div>
+                        <div class="nav-item" data-entity="Invoice" id="nav-Invoice"><span class="nav-dot"></span>Invoice</div>
+                        <div class="nav-item" data-entity="Tracking" id="nav-Tracking"><span class="nav-dot"></span>Tracking</div>
+                    </div>
+                </div>
+
+                <!-- Support -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="support">
+                        <span>💬 Support</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-support">
+                        <div class="nav-item" data-entity="Feedback" id="nav-Feedback"><span class="nav-dot"></span>Feedback</div>
+                        <div class="nav-item" data-entity="CustomerQuery" id="nav-CustomerQuery"><span class="nav-dot"></span>Customer Query</div>
+                        <div class="nav-item" data-entity="CompanyResponse" id="nav-CompanyResponse"><span class="nav-dot"></span>Company Response</div>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="nav-group">
+                    <div class="nav-group-title" data-group="location">
+                        <span>🌍 Location</span>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M4.5 6L8 9.5L11.5 6"/></svg>
+                    </div>
+                    <div class="nav-group-items" id="group-location">
+                        <div class="nav-item" data-entity="Country" id="nav-Country"><span class="nav-dot"></span>Country</div>
+                        <div class="nav-item" data-entity="State" id="nav-State"><span class="nav-dot"></span>State</div>
+                        <div class="nav-item" data-entity="District" id="nav-District"><span class="nav-dot"></span>District</div>
+                        <div class="nav-item" data-entity="Taluka" id="nav-Taluka"><span class="nav-dot"></span>Taluka</div>
+                        <div class="nav-item" data-entity="Town" id="nav-Town"><span class="nav-dot"></span>Town</div>
+                        <div class="nav-item" data-entity="Address" id="nav-Address"><span class="nav-dot"></span>Address</div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-content">
+                    <div class="status-dot"></div>
+                    <span>System Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Top Bar -->
+            <header class="topbar" id="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <div class="breadcrumb" id="breadcrumb">
+                        <span class="breadcrumb-home">Home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-current" id="breadcrumbCurrent">Dashboard</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box" id="searchBox">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" placeholder="Search entities..." id="globalSearch">
+                    </div>
+                    <div class="topbar-avatar" id="topbarAvatar">
+                        <span>A</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <div class="content-area" id="contentArea">
+                <div class="dashboard-view" id="dashboardView">
+                    <div class="dashboard-hero">
+                        <div class="hero-text">
+                            <h2>Welcome to Admin Dashboard</h2>
+                            <p>Manage your entire e-commerce platform from one place. Select an entity from the sidebar to get started.</p>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-card stat-blue">
+                                <div class="stat-icon">👥</div>
+                                <div class="stat-info"><span class="stat-number">6</span><span class="stat-label">People Entities</span></div>
+                            </div>
+                            <div class="stat-card stat-purple">
+                                <div class="stat-icon">📦</div>
+                                <div class="stat-info"><span class="stat-number">5</span><span class="stat-label">Product Entities</span></div>
+                            </div>
+                            <div class="stat-card stat-teal">
+                                <div class="stat-icon">🛒</div>
+                                <div class="stat-info"><span class="stat-number">5</span><span class="stat-label">Order Entities</span></div>
+                            </div>
+                            <div class="stat-card stat-orange">
+                                <div class="stat-icon">🌍</div>
+                                <div class="stat-info"><span class="stat-number">6</span><span class="stat-label">Location Entities</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-access">
+                        <h3>Quick Access</h3>
+                        <div class="quick-grid" id="quickGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entity View -->
+                <div class="entity-view" id="entityView" style="display:none;">
+                    <div class="entity-header">
+                        <div class="entity-title-section">
+                            <h2 id="entityTitle">Entity Name</h2>
+                            <span class="entity-badge" id="entityBadge">0 records</span>
+                        </div>
+                        <button class="btn btn-primary btn-glow" id="addNewBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                            Add New
+                        </button>
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div class="loading-container" id="loadingSpinner" style="display:none;">
+                        <div class="spinner">
+                            <div class="spinner-ring"></div>
+                            <div class="spinner-ring"></div>
+                            <div class="spinner-ring"></div>
+                        </div>
+                        <p>Loading data...</p>
+                    </div>
+
+                    <!-- Data Table -->
+                    <div class="table-container" id="tableContainer">
+                        <table class="data-table" id="dataTable">
+                            <thead id="tableHead"></thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                        <div class="empty-state" id="emptyState" style="display:none;">
+                            <div class="empty-icon">📭</div>
+                            <h3>No Records Found</h3>
+                            <p>Get started by adding a new record.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Record</h3>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <form class="modal-form" id="modalForm">
+                <div class="form-fields" id="formFields">
+                    <!-- Dynamically generated -->
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-glow" id="modalSubmit">Save Record</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteOverlay">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3>Confirm Delete</h3>
+                <button class="modal-close" id="deleteClose" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="delete-body">
+                <div class="delete-icon">⚠️</div>
+                <p>Are you sure you want to delete this record? This action cannot be undone.</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" id="deleteCancelBtn">Cancel</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
